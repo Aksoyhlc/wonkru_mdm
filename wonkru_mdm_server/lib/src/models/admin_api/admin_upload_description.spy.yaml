@@ -1,0 +1,10 @@
+class: AdminUploadDescription
+fields:
+  ### Storage the file goes to: `public` or `private`.
+  storageId: String
+
+  ### Server-derived path inside the storage.
+  path: String
+
+  ### The encoded upload description for `FileUploader`.
+  description: String

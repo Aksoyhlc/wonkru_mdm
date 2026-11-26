@@ -1,0 +1,6 @@
+enum: AppAutoUpdatePolicy
+serialized: byName
+values:
+  - always
+  - wifi_only
+  - never

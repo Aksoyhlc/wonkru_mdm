@@ -1,0 +1,185 @@
+name: wonkrumdm
+description: "A new Flutter project."
+publish_to: 'none'
+version: 1.0.0+25
+
+environment:
+  sdk: ^3.12.2
+
+dependencies:
+  # Flutter SDK
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+
+  # State Management
+  get: ^4.7.3
+
+  # UI
+  auto_size_text: ^3.0.0
+  flutter_screenutil: ^5.9.3
+  animate_do: any
+
+  # Utilities
+  intl: ^0.20.2
+  cron: ^0.6.2
+  uuid: ^4.5.3
+
+
+  # Security
+  crypto: ^3.0.7
+
+  # Storage
+  path_provider: ^2.1.6
+  open_file: ^4.0.0
+  shared_preferences: ^2.5.5
+  flutter_secure_storage: ^10.3.1
+
+  # Location
+  geolocator: ^14.0.3
+
+  # Permissions
+  permission_handler: ^12.0.3
+
+  # QR scanning for the setup screen
+  mobile_scanner: ^7.4.2
+
+  # Device Info
+  device_info_plus: ^13.2.0
+  package_info_plus: ^10.2.0
+
+  # Network
+  connectivity_plus: ^7.2.0
+  network_info_plus: ^8.2.0
+  dio: ^5.10.0
+
+  # Serverpod
+  # The generated client re-exports serverpod_client.
+  wonkru_mdm_client:
+    path: ../wonkru_mdm_client
+
+  # Hardware
+  battery_plus: ^7.1.0
+
+  # Logging
+  logger: ^2.7.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  # Code Generation
+  pigeon: ^27.1.2
+  flutter_launcher_icons: ^0.14.4
+  change_app_package_name: ^1.5.0
+  flutter_native_splash: ^2.4.8
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/fonts/
+    - assets/fonts/Oswald/
+    - assets/fonts/Quicksand/
+    - assets/fonts/Playfair_Display/
+    - assets/fonts/DM_Mono/
+    - assets/fonts/DM_Sans/
+    - assets/fonts/Bebas_Neue/
+    - assets/
+    - assets/images/
+    - tool/generate_lang.dart
+
+  fonts:
+    - family: Oswald
+      fonts:
+        - asset: assets/fonts/Oswald/Oswald-SemiBold.ttf
+          weight: 600
+    - family: Quicksand
+      fonts:
+        - asset: assets/fonts/Quicksand/Quicksand-Regular.ttf
+          weight: 400
+        - asset: assets/fonts/Quicksand/Quicksand-SemiBold.ttf
+          weight: 600
+        - asset: assets/fonts/Quicksand/Quicksand-Bold.ttf
+          weight: 700
+    - family: Playfair Display
+      fonts:
+        - asset: assets/fonts/Playfair_Display/PlayfairDisplay-Regular.ttf
+          weight: 400
+    - family: BebasNeue
+      fonts:
+        - asset: assets/fonts/Bebas_Neue/BebasNeue-Regular.ttf
+          weight: 400
+    - family: DMSans
+      fonts:
+        - asset: assets/fonts/DM_Sans/DMSans-Thin.ttf
+          weight: 100
+        - asset: assets/fonts/DM_Sans/DMSans-ThinItalic.ttf
+          weight: 100
+          style: italic
+        - asset: assets/fonts/DM_Sans/DMSans-ExtraLight.ttf
+          weight: 200
+        - asset: assets/fonts/DM_Sans/DMSans-ExtraLightItalic.ttf
+          weight: 200
+          style: italic
+        - asset: assets/fonts/DM_Sans/DMSans-Light.ttf
+          weight: 300
+        - asset: assets/fonts/DM_Sans/DMSans-LightItalic.ttf
+          weight: 300
+          style: italic
+        - asset: assets/fonts/DM_Sans/DMSans-Regular.ttf
+          weight: 400
+        - asset: assets/fonts/DM_Sans/DMSans-Italic.ttf
+          weight: 400
+          style: italic
+        - asset: assets/fonts/DM_Sans/DMSans-Medium.ttf
+          weight: 500
+        - asset: assets/fonts/DM_Sans/DMSans-MediumItalic.ttf
+          weight: 500
+          style: italic
+        - asset: assets/fonts/DM_Sans/DMSans-SemiBold.ttf
+          weight: 600
+        - asset: assets/fonts/DM_Sans/DMSans-SemiBoldItalic.ttf
+          weight: 600
+          style: italic
+        - asset: assets/fonts/DM_Sans/DMSans-Bold.ttf
+          weight: 700
+        - asset: assets/fonts/DM_Sans/DMSans-BoldItalic.ttf
+          weight: 700
+          style: italic
+        - asset: assets/fonts/DM_Sans/DMSans-ExtraBold.ttf
+          weight: 800
+        - asset: assets/fonts/DM_Sans/DMSans-ExtraBoldItalic.ttf
+          weight: 800
+          style: italic
+        - asset: assets/fonts/DM_Sans/DMSans-Black.ttf
+          weight: 900
+        - asset: assets/fonts/DM_Sans/DMSans-BlackItalic.ttf
+          weight: 900
+          style: italic
+    - family: DMMono
+      fonts:
+        - asset: assets/fonts/DM_Mono/DMMono-Light.ttf
+          weight: 300
+        - asset: assets/fonts/DM_Mono/DMMono-LightItalic.ttf
+          weight: 300
+          style: italic
+        - asset: assets/fonts/DM_Mono/DMMono-Regular.ttf
+          weight: 400
+        - asset: assets/fonts/DM_Mono/DMMono-Italic.ttf
+          weight: 400
+          style: italic
+        - asset: assets/fonts/DM_Mono/DMMono-Medium.ttf
+          weight: 500
+        - asset: assets/fonts/DM_Mono/DMMono-MediumItalic.ttf
+          weight: 500
+          style: italic
+flutter_assets_generator:
+  output_dir: generated/
+  output_filename: assets
+  class_name: Assets
+  auto_detection: true
+  # Options: robust (default), legacy (old style)
+  style: robust
+  path_ignore: [ ]

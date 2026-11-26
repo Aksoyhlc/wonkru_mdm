@@ -1,0 +1,44 @@
+# Test environment configuration for the module.
+#
+# All ports are 0 so the server picks a free port and tests can run in parallel.
+# Because `database.dataPath` is set, Serverpod starts and manages an embedded
+# PostgreSQL itself; no Docker is needed. Redis is disabled in tests.
+
+# Main API test server.
+apiServer:
+  port: 0
+  publicHost: localhost
+  publicPort: 0
+  publicScheme: http
+
+# Insights test server.
+insightsServer:
+  port: 0
+  publicHost: localhost
+  publicPort: 0
+  publicScheme: http
+
+# Web test server.
+webServer:
+  port: 0
+  publicHost: localhost
+  publicPort: 0
+  publicScheme: http
+
+# Test server database (embedded PostgreSQL).
+database:
+  host: localhost
+  port: 9092
+  name: wonkru_core_test
+  user: postgres
+  dataPath: .serverpod/test/pgdata
+
+# Redis test instance (disabled).
+redis:
+  enabled: false
+  host: localhost
+  port: 9093
+
+sessionLogs:
+  persistentEnabled: true
+  consoleEnabled: true

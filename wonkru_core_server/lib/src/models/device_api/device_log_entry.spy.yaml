@@ -1,0 +1,12 @@
+class: DeviceLogEntry
+fields:
+  id: String?
+  timestamp: String
+  level: LogLevel
+  tag: String?
+  message: String
+  stacktrace: String?
+
+  ### Falls back to the batch-level `DeviceLogRequest.sessionId` when absent
+  ### (older agents).
+  sessionId: String?

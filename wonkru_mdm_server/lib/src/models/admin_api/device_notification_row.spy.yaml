@@ -1,0 +1,5 @@
+class: DeviceNotificationRow
+fields:
+  notification: DeviceNotification
+
+  deviceCount: int

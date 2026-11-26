@@ -1,0 +1,23 @@
+enum: DeviceAction
+serialized: byName
+values:
+  - send_notification
+  - enable_power_save
+  - reduce_brightness
+  - disable_wifi
+  - disable_bluetooth
+  - lock_device
+  - clear_cache
+  - disable_camera
+  - clear_app_data
+  - launch_app
+  - launch_intent
+  - uninstall_app
+  - open_app_settings
+  - update_policy
+  - policy_change
+  - get_installed_apps
+  - get_logs
+  - device_data
+  - get_current_location
+  - reboot

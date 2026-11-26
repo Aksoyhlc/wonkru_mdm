@@ -1,0 +1,10 @@
+class: ProvisioningProfilePage
+fields:
+  items: List<ProvisioningProfile>
+
+  total: int
+
+  ### One-based page number.
+  page: int
+
+  perPage: int

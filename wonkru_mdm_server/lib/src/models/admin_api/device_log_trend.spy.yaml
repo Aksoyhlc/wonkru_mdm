@@ -1,0 +1,10 @@
+class: DeviceLogTrend
+fields:
+  ### Bucket labels, oldest first. Hourly for the 24 hour window, daily
+  ### otherwise.
+  labels: List<String>
+
+  totals: List<int>
+
+  ### ERROR and FATAL logs per bucket.
+  errors: List<int>

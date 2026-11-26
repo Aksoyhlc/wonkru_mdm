@@ -1,0 +1,29 @@
+class: PolicyApplication
+table: policy_applications
+fields:
+  policy: Policy?, relation(onDelete=Cascade)
+  sort: int, defaultModel=0
+  application: Application?, relation(onDelete=Cascade)
+  ### Removing a version keeps the pivot row and only clears the reference,
+  ### matching the manual nulling in `ApplicationVersionService.onDeleting`.
+  targetVersion: ApplicationVersion?, relation(onDelete=SetNull, optional)
+
+  action: module:wonkru_core:PolicyApplicationAction
+
+  showLauncher: bool, defaultModel=true
+  customAppName: String?
+
+  runOnBoot: bool, defaultModel=false
+  updatePolicy: module:wonkru_core:AppAutoUpdatePolicy?
+  startAfterInstall: bool, defaultModel=false
+  uninstallBlock: bool, defaultModel=false
+
+  createdAt: DateTime?
+  updatedAt: DateTime?
+
+indexes:
+  policy_applications_policy_id_application_id_unique:
+    fields: policyId, applicationId
+    unique: true
+  policy_applications_target_version_id_foreign:
+    fields: targetVersionId

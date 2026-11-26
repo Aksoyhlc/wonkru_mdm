@@ -1,0 +1,65 @@
+const Map<String, String> provisioningEn = {
+  'provisioning.empty_title': 'No provisioning profiles found',
+  'provisioning.empty_subtitle': 'Create your first profile.',
+  'provisioning.new_profile': 'New Profile',
+  'provisioning.updated': 'Updated',
+
+  'provisioning.delete_title': 'Delete Profile',
+  'provisioning.delete_confirm': 'Permanently delete the "@name" profile?',
+  'provisioning.deleted': 'Profile deleted',
+  'provisioning.template_load_failed': 'Could not load the template: @error',
+  'provisioning.name_required': 'Name cannot be empty',
+  'provisioning.profile_updated': 'Profile updated',
+  'provisioning.profile_created': 'Profile created',
+
+  'provisioning.editor_subtitle': 'Provisioning profile',
+  'provisioning.name_hint': 'e.g. Field Setup',
+  'provisioning.config_section': 'Configuration',
+  'provisioning.load_default_template': 'Load default template',
+  'provisioning.raw_json': 'Raw JSON',
+  'provisioning.raw_help':
+      'Editable manually — changes also sync to the structured fields.',
+
+  'provisioning.config_empty': 'Configuration cannot be empty.',
+  'provisioning.config_not_object': 'Configuration must be a JSON object.',
+  'provisioning.invalid_json': 'Invalid JSON: @message',
+
+  'provisioning.configured_fields': 'Configured Fields',
+  'provisioning.field_admin_component': 'Admin Component',
+  'provisioning.field_apk_url': 'APK Download URL',
+  'provisioning.field_signature_checksum': 'Signature Checksum (SHA-256)',
+  'provisioning.field_signature_checksum_hint': 'APK signature SHA-256 hash',
+  'provisioning.field_package_checksum': 'APK file checksum (SHA-256)',
+  'provisioning.field_time_zone': 'Time Zone',
+  'provisioning.field_locale': 'Locale',
+  'provisioning.field_organization': 'Organization',
+  'provisioning.bundle_fields': 'Wonkru Custom Fields (ADMIN_EXTRAS_BUNDLE)',
+  'provisioning.field_server_url': 'Server URL',
+  'provisioning.field_device_code': 'Device Code',
+  'provisioning.wifi_title': 'Setup Wi-Fi network',
+  'provisioning.wifi_ssid': 'Network name (SSID)',
+  'provisioning.wifi_ssid_required':
+      'Enter the setup Wi-Fi network name (SSID).',
+  'provisioning.wifi_security': 'Security type',
+  'provisioning.wifi_wpa': 'WPA/WPA2 Personal',
+  'provisioning.wifi_open': 'Open network',
+  'provisioning.wifi_eap': 'EAP (Enterprise)',
+  'provisioning.wifi_password': 'Wi-Fi password',
+  'provisioning.wifi_password_required':
+      'Enter the Wi-Fi password for this network.',
+  'provisioning.wifi_hidden': 'Hidden network',
+  'provisioning.wifi_eap_method': 'EAP method',
+  'provisioning.wifi_eap_method_required': 'Select an EAP method.',
+  'provisioning.wifi_eap_hint':
+      'Use the raw JSON editor to enter settings your network requires, such as identity, domain, or certificates.',
+  'provisioning.wifi_invalid_security':
+      'Select a supported Wi-Fi security type.',
+
+  'provisioning.qr_title': 'QR Code Preview',
+  'provisioning.qr_live': '(live)',
+  'provisioning.fullscreen': 'Fullscreen',
+  'provisioning.qr_downloaded': 'QR code downloaded',
+  'provisioning.qr_download_failed': 'Could not download the QR: @error',
+  'provisioning.qr_placeholder': 'Enter a valid configuration',
+  'provisioning.png_failed': 'Could not generate the PNG',
+};

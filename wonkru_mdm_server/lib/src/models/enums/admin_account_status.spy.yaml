@@ -1,0 +1,5 @@
+enum: AdminAccountStatus
+serialized: byName
+values:
+  - active
+  - disabled

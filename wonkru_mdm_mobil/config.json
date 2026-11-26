@@ -1,0 +1,8 @@
+{
+  "HOST": "192.168.90.131",
+  "PORT": "19080",
+  "SCHEME": "http",
+  "IT_PAGE_PASSWORD": "CHANGE_ME",
+  "BOTTOM_LEFT_APP_NAME": "Wonkru MDM",
+  "ENROLLMENT_KEY": "WNKR-GAHS-TEGX-9FQF"
+}

@@ -1,0 +1,8 @@
+# Wonkru MDM core module. The server discovers this module from the pubspec
+# dependency name (`_server` suffix); the nickname sets the client-side class
+# prefix (`wonkru_core.`).
+type: module
+nickname: wonkru_core
+
+client_package_path: ../wonkru_core_client
+server_test_tools_path: test/test_tools

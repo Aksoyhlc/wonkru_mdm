@@ -1,0 +1,3 @@
+class: DeviceSyncResponse
+fields:
+  deviceCode: String

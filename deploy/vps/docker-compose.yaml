@@ -1,0 +1,95 @@
+# PostgreSQL, Wonkru MDM, and Caddy; configured through .env.
+name: wonkru-mdm
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: wonkru_mdm
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: ${DB_PASSWORD:?DB_PASSWORD .env icinde olmali}
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d wonkru_mdm"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+
+  server:
+    image: wonkru-mdm-server:latest
+    pull_policy: never
+    restart: unless-stopped
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      SERVERPOD_DATABASE_HOST: postgres
+      SERVERPOD_DATABASE_PORT: "5432"
+      SERVERPOD_DATABASE_REQUIRE_SSL: "false"
+
+      # Public API and panel addresses.
+      SERVERPOD_API_SERVER_PUBLIC_HOST: ${API_PUBLIC_HOST:?API_PUBLIC_HOST .env icinde olmali}
+      SERVERPOD_API_SERVER_PUBLIC_PORT: ${API_PUBLIC_PORT:?API_PUBLIC_PORT .env icinde olmali}
+      SERVERPOD_API_SERVER_PUBLIC_SCHEME: ${API_PUBLIC_SCHEME:?API_PUBLIC_SCHEME .env icinde olmali}
+      SERVERPOD_WEB_SERVER_PUBLIC_HOST: ${WEB_PUBLIC_HOST:?WEB_PUBLIC_HOST .env icinde olmali}
+      SERVERPOD_WEB_SERVER_PUBLIC_PORT: ${WEB_PUBLIC_PORT:?WEB_PUBLIC_PORT .env icinde olmali}
+      SERVERPOD_WEB_SERVER_PUBLIC_SCHEME: ${WEB_PUBLIC_SCHEME:?WEB_PUBLIC_SCHEME .env icinde olmali}
+
+      # Panel origin for credentialed CORS.
+      SERVERPOD_ALLOWED_ORIGINS: ${PANEL_ORIGIN:?PANEL_ORIGIN .env icinde olmali}
+      # Use false for HTTP deployments.
+      SERVERPOD_AUTH_COOKIE_SECURE: ${AUTH_COOKIE_SECURE:-true}
+      APP_URL: ${APP_URL:?APP_URL .env icinde olmali}
+      APP_NAME: ${APP_NAME:-Wonkru MDM}
+      CLIENT_IP_SOURCE: proxy
+
+      SERVERPOD_PASSWORD_database: ${DB_PASSWORD}
+      SERVERPOD_PASSWORD_serviceSecret: ${SERVICE_SECRET:?}
+      SERVERPOD_PASSWORD_emailSecretHashPepper: ${EMAIL_SECRET_HASH_PEPPER:?}
+      SERVERPOD_PASSWORD_jwtHmacSha512PrivateKey: ${JWT_HMAC_SHA512_PRIVATE_KEY:?}
+      SERVERPOD_PASSWORD_jwtRefreshTokenHashPepper: ${JWT_REFRESH_TOKEN_HASH_PEPPER:?}
+      SERVERPOD_PASSWORD_storageSigningKey: ${STORAGE_SIGNING_KEY:?}
+      PASSWORD_HASH_PEPPER: ${PASSWORD_HASH_PEPPER:?}
+      STARTER_ADMIN_PASSWORD: ${STARTER_ADMIN_PASSWORD:-}
+    volumes:
+      - storage:/app/storage
+    healthcheck:
+      test: ["CMD-SHELL", "wget -qO- http://127.0.0.1:8080/startupz >/dev/null || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 30
+      start_period: 20s
+
+  caddy:
+    image: caddy:2-alpine
+    restart: unless-stopped
+    depends_on:
+      - server
+    ports:
+      # Host ports come from .env; Caddy listens on the configured site addresses.
+      - "${HTTP_PORT:-80}:80"
+      - "${HTTPS_PORT:-443}:443"
+      - "${HTTPS_PORT:-443}:443/udp"
+      - "${API_PORT:-8080}:8080"
+      - "${WEB_PORT:-8082}:8082"
+    environment:
+      # ACME account email for domain-based HTTPS.
+      ACME_EMAIL: ${ACME_EMAIL:-admin@example.com}
+      API_SITE: ${API_SITE:?API_SITE .env icinde olmali}
+      WEB_SITE: ${WEB_SITE:?WEB_SITE .env icinde olmali}
+      BRIDGE_SITE: ${BRIDGE_SITE:-http://:8099}
+      CA_BOOTSTRAP_SITE: ${CA_BOOTSTRAP_SITE:-http://:8098}
+      CADDY_TLS: ${CADDY_TLS:-}
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - ./certs:/certs:ro
+      - caddy_data:/data
+      - caddy_config:/config
+
+volumes:
+  pgdata:
+  storage:
+  caddy_data:
+  caddy_config:

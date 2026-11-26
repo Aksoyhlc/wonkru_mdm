@@ -1,0 +1,5 @@
+class: DeviceConfigRequest
+fields:
+  deviceUuid: String
+
+  token: String

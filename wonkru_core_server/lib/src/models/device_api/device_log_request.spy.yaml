@@ -1,0 +1,7 @@
+class: DeviceLogRequest
+fields:
+  deviceUuid: String
+
+  token: String
+  sessionId: String?
+  entries: List<DeviceLogEntry>

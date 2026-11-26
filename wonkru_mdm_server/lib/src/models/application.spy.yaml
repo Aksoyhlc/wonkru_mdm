@@ -1,0 +1,21 @@
+class: Application
+table: applications
+fields:
+  packageName: String
+
+  appName: String
+  developerName: String?
+  iconUrl: String?
+  category: String?
+  sourceType: AppSourceType?
+
+  isSystemApp: bool, defaultModel=false
+
+  createdAt: DateTime?
+  updatedAt: DateTime?
+  deletedAt: DateTime?
+
+indexes:
+  applications_package_name_unique:
+    fields: packageName
+    unique: true

@@ -1,0 +1,7 @@
+class: DeviceVersionInfo
+fields:
+  ### Android release, e.g. `14`.
+  release: String?
+
+  ### Android SDK level, e.g. `34`.
+  sdkInt: int?

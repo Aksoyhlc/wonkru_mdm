@@ -1,0 +1,12 @@
+name: wonkru-mdm-image
+x-wonkru-mode: https
+
+services:
+  server:
+    image: "${WONKRU_IMAGE:?Set WONKRU_IMAGE to a released image}"
+    pull_policy: missing
+  caddy:
+    ports: !override
+      - "80:80"
+      - "443:443"
+      - "443:443/udp"

@@ -1,0 +1,10 @@
+class: DeviceStreamMessage
+fields:
+  ### Message kind: `welcome`, `heartbeat`, `ack` or `command`.
+  type: String
+
+  commandId: String?
+
+  payload: String?
+
+  sentAt: DateTime?

@@ -1,0 +1,9 @@
+class: DeviceLogPage
+fields:
+  items: List<DeviceLogRow>
+
+  total: int
+
+  page: int
+
+  perPage: int

@@ -1,0 +1,32 @@
+class: AdminDeviceLogListRequest
+fields:
+  page: int, defaultModel=1
+
+  perPage: int, defaultModel=25
+
+  ### Searches tag, message and device identity.
+  search: String?
+
+  sortBy: String?
+
+  sortDesc: bool, defaultModel=false
+
+  levels: List<int>?
+
+  deviceId: int?
+
+  ### Inclusive lower bound of the `logged_at` range.
+  loggedFrom: DateTime?
+
+  ### Inclusive upper bound of the `logged_at` range.
+  loggedUntil: DateTime?
+
+  ### Named range. Accepted values: `today`, `yesterday`, `last_7_days`,
+  ### `last_30_days`, `this_week` and `this_month`.
+  period: String?
+
+  sessionId: String?
+
+  tag: String?
+
+  hasStacktrace: bool?

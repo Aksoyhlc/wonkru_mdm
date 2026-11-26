@@ -1,0 +1,23 @@
+class: AdminSessionInfo
+fields:
+  status: AdminAccountStatus?
+
+  adminProfileId: int?
+
+  displayName: String?
+
+  ### True when no admin profile exists and first-run setup is required.
+  needsBootstrap: bool
+
+  ### Whether this session's token carries the `admin` scope. Scopes are
+  ### embedded in the JWT at sign-in, so a token issued before the scope was
+  ### granted gets 403 on panel endpoints.
+  hasAdminScope: bool, defaultModel=false
+
+  totpEnabled: bool, defaultModel=false
+
+  ### 2FA enabled but not yet verified in this session; the panel shows the
+  ### code step only when true.
+  twoFactorRequired: bool, defaultModel=false
+
+  unreadNotificationCount: int, defaultModel=0

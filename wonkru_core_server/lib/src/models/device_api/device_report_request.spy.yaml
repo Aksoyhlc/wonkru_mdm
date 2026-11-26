@@ -1,0 +1,9 @@
+class: DeviceReportRequest
+fields:
+  deviceUuid: String
+
+  token: String
+  type: String
+
+  ### Serialized JSON report payload.
+  payload: String

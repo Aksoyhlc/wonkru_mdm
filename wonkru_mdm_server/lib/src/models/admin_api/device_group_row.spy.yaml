@@ -1,0 +1,5 @@
+class: DeviceGroupRow
+fields:
+  group: DeviceGroup
+
+  deviceCount: int

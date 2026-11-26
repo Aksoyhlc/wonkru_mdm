@@ -1,0 +1,8 @@
+### Thrown when a policy setting is inconsistent; carries the dotted path of the
+### offending field (e.g. `display_settings.min_brightness`).
+exception: AdminPolicyValidationException
+fields:
+  ### Developer-facing message; the panel translates it by [field].
+  message: String
+
+  field: String?

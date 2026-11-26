@@ -1,0 +1,5 @@
+### Thrown when `sendCommand` input is invalid: unknown action, missing
+### required parameter, or no target device.
+exception: DeviceCommandValidationException
+fields:
+  message: String

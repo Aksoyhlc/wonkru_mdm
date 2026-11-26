@@ -1,0 +1,13 @@
+class: DeviceFileUploadRequest
+fields:
+  deviceUuid: String
+
+  token: String
+
+  fileName: String
+
+  fileExtension: String?
+
+  mimeType: String?
+
+  byteData: ByteData

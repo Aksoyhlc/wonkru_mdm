@@ -1,0 +1,13 @@
+### Thrown when an upload is rejected; carries the size numbers so the panel
+### can explain the refusal.
+exception: AdminUploadException
+fields:
+  message: String
+
+  ### Upload purpose the request was for, e.g. `apk`.
+  purpose: String
+
+  ### Size cap in bytes; null when the refusal is not about size.
+  maxSizeBytes: int?
+
+  sizeBytes: int?

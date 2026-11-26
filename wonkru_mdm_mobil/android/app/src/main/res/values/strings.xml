@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Wonkru MDM</string>
+    <string name="app_admin_name">Wonkru MDM Admin</string>
+    <string name="mdm_device_admin_description">MDM Device Admin Receiver</string>
+    <string name="watchdog_notification_text">System protection active</string>
+    <string name="watchdog_channel_name">Wonkru MDM - System protection</string>
+    <string name="watchdog_channel_description">Watchdog service notification</string>
+</resources>

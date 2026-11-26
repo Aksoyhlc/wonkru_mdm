@@ -1,0 +1,6 @@
+class: DeviceSyncDetail
+fields:
+  row: DeviceSyncRow
+
+  ### Flattened state of this snapshot.
+  state: DeviceStateCache

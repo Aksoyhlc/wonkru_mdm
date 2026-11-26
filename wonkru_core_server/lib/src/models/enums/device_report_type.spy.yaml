@@ -1,0 +1,5 @@
+enum: DeviceReportType
+serialized: byName
+values:
+  - wifi_network_changed
+  - impossibleSpeed

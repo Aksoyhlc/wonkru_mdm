@@ -1,0 +1,25 @@
+class: DeviceLog
+table: device_logs
+fields:
+  device: Device?, relation(onDelete=Cascade)
+  entryUuid: String?
+  sessionId: String?
+  loggedAt: DateTime?
+  level: int, defaultModel=2
+  tag: String?
+  message: String
+  stacktrace: String?
+  createdAt: DateTime?
+  updatedAt: DateTime?
+
+indexes:
+  device_logs_logged_at_index:
+    fields: loggedAt
+  device_logs_level_index:
+    fields: level
+  device_logs_tag_index:
+    fields: tag
+  device_logs_device_id_logged_at_index:
+    fields: deviceId, loggedAt
+  device_logs_session_id_index:
+    fields: sessionId

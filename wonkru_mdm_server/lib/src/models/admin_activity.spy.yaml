@@ -1,0 +1,40 @@
+### Audit record of an admin action.
+###
+### Rows are immutable: never edited or deleted through the panel. Actor name
+### and email are stored as a snapshot so the record stays readable after the
+### account is deleted.
+class: AdminActivity
+table: admin_activities
+fields:
+  ### Auth user id of the actor; null for system or failed sign-ins.
+  actorUserId: UuidValue?
+
+  ### Email at the time of the action; the attempted email on a failed sign-in.
+  actorEmail: String?
+
+  actorName: String?
+
+  ### Action code `<domain>.<action>` (e.g. `device.delete`); the panel resolves
+  ### its label via i18n.
+  action: String
+
+  targetType: String?
+
+  targetId: String?
+
+  ### Action-specific extra data as JSON.
+  data: String?
+
+  ipAddress: String?
+
+  createdAt: DateTime
+
+indexes:
+  admin_activities_actor_user_id_index:
+    fields: actorUserId
+  admin_activities_action_index:
+    fields: action
+  admin_activities_created_at_index:
+    fields: createdAt
+  admin_activities_target_index:
+    fields: targetType, targetId

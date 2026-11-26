@@ -1,0 +1,23 @@
+class: DeviceNotification
+table: device_notifications
+fields:
+  uuid: String?
+  title: String
+  message: String
+  type: module:wonkru_core:NotificationType
+
+  ### Serialized JSON payload with additional notification data.
+  extra: String?
+
+  sentAt: DateTime?
+  createdAt: DateTime?
+  updatedAt: DateTime?
+
+indexes:
+  device_notifications_uuid_unique:
+    fields: uuid
+    unique: true
+  device_notifications_sent_at_index:
+    fields: sentAt
+  device_notifications_type_index:
+    fields: type

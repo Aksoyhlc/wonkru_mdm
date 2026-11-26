@@ -1,0 +1,47 @@
+name: Feature request
+description: Suggest an idea or improvement for Wonkru MDM
+title: "[Feature]: "
+labels: [ enhancement ]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for the suggestion. Describe the problem first, then the proposed solution.
+  - type: dropdown
+    id: component
+    attributes:
+      label: Component
+      options:
+        - Server (wonkru_mdm_server)
+        - Panel (wonkru_mdm_flutter)
+        - Agent (wonkru_mdm_mobil)
+        - Core module (wonkru_core)
+        - Deployment (deploy/vps)
+        - Documentation
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: What are you trying to do that is difficult or impossible today?
+    validations:
+      required: true
+  - type: textarea
+    id: solution
+    attributes:
+      label: Proposed solution
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+    validations:
+      required: false
+  - type: textarea
+    id: context
+    attributes:
+      label: Additional context
+    validations:
+      required: false

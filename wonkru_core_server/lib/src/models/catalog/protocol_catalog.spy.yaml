@@ -1,0 +1,8 @@
+### Not persisted; served to the panel over the protocol via `CoreEndpoint.catalogs`.
+class: ProtocolCatalog
+fields:
+  restrictions: List<RestrictionCatalogEntry>
+
+  deviceActions: List<DeviceActionInfo>
+
+  enumValues: Map<String, List<String>>

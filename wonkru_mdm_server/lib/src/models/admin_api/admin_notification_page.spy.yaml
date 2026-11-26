@@ -1,0 +1,9 @@
+class: AdminNotificationPage
+fields:
+  items: List<AdminNotification>
+
+  total: int
+
+  page: int
+
+  perPage: int

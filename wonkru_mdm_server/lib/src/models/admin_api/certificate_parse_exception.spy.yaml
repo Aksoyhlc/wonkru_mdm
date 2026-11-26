@@ -1,0 +1,5 @@
+### Thrown when a certificate file cannot be decoded; carries a user-facing
+### message.
+exception: CertificateParseException
+fields:
+  message: String

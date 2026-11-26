@@ -1,0 +1,21 @@
+### The panel submits every field at once: null clears the column unless a
+### field documents otherwise.
+class: AdminDeviceUpdateRequest
+fields:
+  deviceId: int
+
+  name: String?
+
+  ### Null keeps the stored code, because the column is not nullable.
+  code: String?
+
+  ### Null clears the assignment, handing the device back to the default policy.
+  policyId: int?
+
+  userId: UuidValue?
+
+  ### Serialized JSON list of applications the user must keep running.
+  mustUseApplications: String?
+
+  ### Null leaves the group memberships alone, an empty list removes them all.
+  deviceGroupIds: List<int>?

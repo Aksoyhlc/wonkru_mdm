@@ -1,0 +1,6 @@
+class: DeviceNotificationAckRequest
+fields:
+  deviceUuid: String
+
+  token: String
+  notificationUuid: String

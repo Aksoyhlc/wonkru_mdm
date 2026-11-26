@@ -1,0 +1,15 @@
+const Map<String, String> deviceGroupsEn = {
+  'deviceGroups.empty_title': 'No device groups found',
+  'deviceGroups.empty_body': 'Add your first device group.',
+  'deviceGroups.new_group': 'New group',
+  'deviceGroups.edit_title': 'Edit group',
+  'deviceGroups.name_required': 'Group name cannot be empty',
+  'deviceGroups.name_hint': 'e.g. Field Team',
+  'deviceGroups.device_count': 'Device count',
+  'deviceGroups.list_devices_tooltip': 'List the devices in this group',
+  'deviceGroups.created': 'Group added',
+  'deviceGroups.updated': 'Group updated',
+  'deviceGroups.delete_title': 'Delete group',
+  'deviceGroups.delete_confirm': 'Delete the "@name" group permanently?',
+  'deviceGroups.deleted': 'Group deleted',
+};

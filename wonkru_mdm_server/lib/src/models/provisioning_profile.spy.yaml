@@ -1,0 +1,19 @@
+class: ProvisioningProfile
+table: provisioning_profiles
+fields:
+  name: String
+  description: String?
+
+  ### JSON configuration payload.
+  config: String
+
+  isActive: bool, defaultModel=true
+
+  createdById: UuidValue?
+
+  createdAt: DateTime?
+  updatedAt: DateTime?
+
+indexes:
+  provisioning_profiles_created_by_foreign:
+    fields: createdById

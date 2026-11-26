@@ -1,0 +1,9 @@
+class: DeviceSyncPage
+fields:
+  items: List<DeviceSyncRow>
+
+  total: int
+
+  page: int
+
+  perPage: int

@@ -1,0 +1,7 @@
+enum: NotificationDeliveryStatus
+serialized: byName
+values:
+  - pending
+  - sent
+  - received
+  - failed

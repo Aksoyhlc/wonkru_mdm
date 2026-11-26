@@ -1,0 +1,10 @@
+class: AdminActivityPage
+fields:
+  ### Records of this page, newest first.
+  items: List<AdminActivity>
+
+  total: int
+
+  page: int
+
+  perPage: int

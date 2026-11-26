@@ -1,0 +1,25 @@
+### Two-factor verification state for one admin session.
+###
+### Verification is session-bound: the row matches the session id ([sessionId])
+### and counts only until [verifiedUntil], so verifying on one device does not
+### open another session. [userId] lets disabling 2FA drop the verification of
+### all sessions at once; otherwise old sessions would count as verified under
+### the new secret.
+class: AdminTotpSession
+table: admin_totp_sessions
+fields:
+  userId: UuidValue
+
+  ### `AuthenticationInfo.authId` (the JWT refresh token).
+  sessionId: String
+
+  verifiedUntil: DateTime
+
+  createdAt: DateTime
+
+indexes:
+  admin_totp_sessions_session_id_unique:
+    fields: sessionId
+    unique: true
+  admin_totp_sessions_user_id_index:
+    fields: userId

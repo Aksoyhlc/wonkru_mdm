@@ -1,0 +1,8 @@
+### Thrown when writing an application conflicts with an existing row. A
+### duplicate package name sets [existingApplication]; other conflicts (e.g. a
+### duplicate version code) leave it null.
+exception: ApplicationConflictException
+fields:
+  message: String
+
+  existingApplication: Application?

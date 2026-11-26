@@ -1,0 +1,44 @@
+### A durable command queued for a device.
+###
+### Commands are written as `pending` and pushed over the device stream when the
+### device is connected. Every row carries a `commandId` the agent echoes back
+### in its `ack`, so delivery is at-least-once and idempotent.
+class: DeviceCommand
+table: device_commands
+fields:
+  device: Device?, relation(onDelete=Cascade)
+
+  commandId: String
+
+  ### Bulk-send id; null for single-device commands.
+  bulkId: String?
+
+  action: module:wonkru_core:DeviceAction
+
+  ### JSON object with the action parameters.
+  params: String?
+
+  ### Delivery state: `pending`, `sent`, `acked`, `timeout` or `error`.
+  status: module:wonkru_core:DeviceCommandStatus
+
+  attempts: int, defaultModel=0
+
+  ### JSON response returned with the ack.
+  response: String?
+
+  createdAt: DateTime?
+  sentAt: DateTime?
+  ackedAt: DateTime?
+
+indexes:
+  device_commands_command_id_unique:
+    fields: commandId
+    unique: true
+  device_commands_device_id_index:
+    fields: deviceId
+  device_commands_status_index:
+    fields: status
+  device_commands_bulk_id_index:
+    fields: bulkId
+  idx_device_commands_device_status:
+    fields: deviceId, status

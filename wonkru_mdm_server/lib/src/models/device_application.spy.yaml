@@ -1,0 +1,21 @@
+class: DeviceApplication
+table: device_applications
+fields:
+  device: Device?, relation(onDelete=Cascade)
+  packageName: String
+  appName: String
+  versionName: String?
+  versionCode: int?
+  isSystemApp: bool, defaultModel=false
+  isUninstallBlocked: bool, defaultModel=false
+  isPowerSaveWhitelisted: bool?
+  lastSeenAt: DateTime?
+  createdAt: DateTime?
+  updatedAt: DateTime?
+
+indexes:
+  device_applications_device_id_package_name_unique:
+    fields: deviceId, packageName
+    unique: true
+  device_applications_package_name_index:
+    fields: packageName

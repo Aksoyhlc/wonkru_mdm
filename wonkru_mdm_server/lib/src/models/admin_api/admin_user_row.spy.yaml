@@ -1,0 +1,19 @@
+class: AdminUserRow
+fields:
+  authUserId: UuidValue
+
+  name: String?
+
+  ### Login email; falls back to the profile's verified email.
+  email: String?
+
+  hasPassword: bool
+
+  blocked: bool
+
+  ### Admin account status; `disabled` when there is no admin profile.
+  status: AdminAccountStatus
+
+  lastLoginAt: DateTime?
+
+  createdAt: DateTime

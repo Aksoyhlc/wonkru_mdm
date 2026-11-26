@@ -1,0 +1,39 @@
+class: Policy
+table: policies
+fields:
+  name: String
+  slug: String?
+  description: String?
+
+  ### JSON describing the allowed time ranges.
+  activeTimeRanges: String?
+
+  isActive: bool, defaultModel=true
+  version: int, defaultModel=1
+  defaultPolicy: bool, defaultModel=false
+
+  ### Argon2id hash of the admin password.
+  adminPassword: String?
+
+  ### JSON setting blocks.
+  batterySettings: String?
+  storageSettings: String?
+  audioSettings: String?
+  displaySettings: String?
+  securitySettings: String?
+  restrictionSettings: String?
+
+  ### JSON launcher configuration.
+  launcher: String?
+
+  syncSettings: String?
+  otherSettings: String?
+
+  createdAt: DateTime?
+  updatedAt: DateTime?
+  deletedAt: DateTime?
+
+indexes:
+  policies_slug_unique:
+    fields: slug
+    unique: true

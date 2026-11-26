@@ -1,0 +1,5 @@
+# Enter values without surrounding quotes.
+storePassword=replace-me
+keyPassword=replace-me
+keyAlias=replace-me
+storeFile=/absolute/path/to/client.jks

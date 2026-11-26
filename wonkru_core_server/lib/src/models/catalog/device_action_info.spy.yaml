@@ -1,0 +1,15 @@
+class: DeviceActionInfo
+fields:
+  action: DeviceAction
+
+  isBulkAction: bool
+
+  requiresConfirmation: bool
+
+  ### Expected response type: `json` or `message`.
+  expectedResponse: String
+
+  packageParamKey: String?
+
+  ### Defaults filled for missing params, keyed in snake_case.
+  defaultParams: Map<String, String>

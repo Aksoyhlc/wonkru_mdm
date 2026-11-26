@@ -1,0 +1,7 @@
+class: DeviceRegisterResponse
+fields:
+  code: String
+
+  uuid: String
+
+  token: String

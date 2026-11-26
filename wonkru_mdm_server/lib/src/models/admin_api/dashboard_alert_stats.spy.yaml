@@ -1,0 +1,11 @@
+class: DashboardAlertStats
+fields:
+  ### Devices reporting less than 20 percent battery.
+  criticalBatteryDevices: int
+
+  ### Devices with less than 10 percent of their storage free.
+  criticalStorageDevices: int
+
+  launcherModeDevices: int
+
+  rootedDevices: int

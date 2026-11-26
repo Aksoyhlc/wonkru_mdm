@@ -1,0 +1,11 @@
+class: AdminCertificateUploadResponse
+fields:
+  ### Path inside the public storage.
+  filePath: String
+
+  ### SHA-256 of the uploaded bytes.
+  fileHash: String
+
+  sizeBytes: int
+
+  publicUrl: String?

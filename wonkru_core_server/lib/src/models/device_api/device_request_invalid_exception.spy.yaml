@@ -1,0 +1,7 @@
+### Thrown when an unauthenticated or device facing request carries a field
+### beyond its size limit (oversized strings, too many list entries).
+exception: DeviceRequestInvalidException
+fields:
+  message: String
+
+  field: String?

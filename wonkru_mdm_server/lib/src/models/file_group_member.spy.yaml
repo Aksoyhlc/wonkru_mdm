@@ -1,0 +1,12 @@
+class: FileGroupMember
+table: file_group_members
+fields:
+  file: FileAsset?, relation(onDelete=Cascade)
+  fileGroup: FileGroup?, relation(onDelete=Cascade)
+  createdAt: DateTime?
+  updatedAt: DateTime?
+
+indexes:
+  file_group_members_file_id_file_group_id_unique:
+    fields: fileId, fileGroupId
+    unique: true

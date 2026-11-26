@@ -1,0 +1,8 @@
+### Not a table. Serverpod has no enum-keyed map, so `system_alert_routing`'s
+### on-disk `type_channels` map is carried as a list of records.
+class: AlertTypeChannels
+fields:
+  type: SystemAlertType
+
+  ### Selected channels; every record carries at least one.
+  channels: List<String>

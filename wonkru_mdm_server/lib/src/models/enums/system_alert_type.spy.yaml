@@ -1,0 +1,6 @@
+enum: SystemAlertType
+serialized: byName
+values:
+  - device_offline
+  - policy_update_pending
+  - security_info

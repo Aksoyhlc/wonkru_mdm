@@ -1,0 +1,35 @@
+class: Certificate
+table: certificates
+fields:
+  name: String
+  description: String?
+
+  certificateType: module:wonkru_core:CertificateType
+
+  ### PEM encoded.
+  certificateData: String
+
+  ### PEM encoded.
+  privateKeyData: String?
+
+  format: module:wonkru_core:CertificateFormat
+
+  issuer: String?
+  subject: String?
+  serialNumber: String?
+  fingerprintSha256: String?
+  validFrom: DateTime?
+  validUntil: DateTime?
+  isActive: bool, defaultModel=true
+  createdAt: DateTime?
+  updatedAt: DateTime?
+  deletedAt: DateTime?
+  filePath: String?
+  fileHash: String?
+
+  password: String?
+
+indexes:
+  certificates_fingerprint_sha256_unique:
+    fields: fingerprintSha256
+    unique: true

@@ -1,0 +1,5 @@
+class: CheckPolicyDevicesCall
+fields:
+  policyId: int
+
+  expectedVersion: int

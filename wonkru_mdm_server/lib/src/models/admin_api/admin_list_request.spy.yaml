@@ -1,0 +1,11 @@
+class: AdminListRequest
+fields:
+  page: int, defaultModel=1
+
+  perPage: int, defaultModel=25
+
+  search: String?
+
+  sortBy: String?
+
+  sortDesc: bool, defaultModel=false

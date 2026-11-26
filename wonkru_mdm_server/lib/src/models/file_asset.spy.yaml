@@ -1,0 +1,19 @@
+class: FileAsset
+table: files
+fields:
+  name: String
+  customName: String?
+  fileExtension: String?
+  filePath: String
+  publicUrl: String?
+  mimeType: String?
+  sizeBytes: int
+  fileHashSha256: String?
+
+  disk: StorageDisk?
+
+  ### Set for files uploaded by the device agent; null for panel files.
+  device: Device?, relation(onDelete=SetNull, optional)
+
+  createdAt: DateTime?
+  updatedAt: DateTime?

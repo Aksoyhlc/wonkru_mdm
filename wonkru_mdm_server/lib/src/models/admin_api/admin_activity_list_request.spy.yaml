@@ -1,0 +1,21 @@
+class: AdminActivityListRequest
+fields:
+  page: int, defaultModel=1
+
+  perPage: int, defaultModel=25
+
+  ### Free text search over actor name/email and target id.
+  search: String?
+
+  ### Column to order by (`createdAt`, `action`).
+  sortBy: String?
+
+  sortDesc: bool, defaultModel=false
+
+  actorUserId: UuidValue?
+
+  action: String?
+
+  from: DateTime?
+
+  to: DateTime?

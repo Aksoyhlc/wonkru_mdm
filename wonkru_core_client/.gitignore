@@ -1,0 +1,13 @@
+# Generated Pub files
+.dart_tool/
+.packages
+
+# Library packages do not track pubspec.lock:
+# https://dart.dev/guides/libraries/private-files#pubspeclock
+pubspec.lock
+
+# Build output
+build/
+
+# dartdoc output
+doc/api/

@@ -1,0 +1,8 @@
+enum: DeviceCommandStatus
+serialized: byName
+values:
+  - pending
+  - sent
+  - acked
+  - timeout
+  - error

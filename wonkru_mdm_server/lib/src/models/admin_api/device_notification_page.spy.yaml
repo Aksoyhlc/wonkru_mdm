@@ -1,0 +1,9 @@
+class: DeviceNotificationPage
+fields:
+  items: List<DeviceNotificationRow>
+
+  total: int
+
+  page: int
+
+  perPage: int

@@ -1,0 +1,14 @@
+class: DeviceLogStats
+fields:
+  totalLogs: int
+
+  ### ERROR and FATAL logs of the last 24 hours.
+  errorCount: int
+
+  ### [errorCount] as a percentage of [totalLogs], one decimal.
+  errorRate: double
+
+  activeDevices: int
+
+  ### Log counts of the last seven hours, oldest first.
+  hourlyTrend: List<int>

@@ -1,0 +1,11 @@
+class: DeviceSyncRequest
+fields:
+  deviceUuid: String
+
+  token: String
+
+  ### Either `full` or `dynamic`.
+  syncType: String?
+
+  ### Serialized JSON snapshot of the sync body.
+  payload: String

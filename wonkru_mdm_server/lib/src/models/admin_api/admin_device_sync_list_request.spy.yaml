@@ -1,0 +1,19 @@
+class: AdminDeviceSyncListRequest
+fields:
+  page: int, defaultModel=1
+
+  perPage: int, defaultModel=25
+
+  search: String?
+
+  sortBy: String?
+
+  sortDesc: bool, defaultModel=false
+
+  deviceId: int?
+
+  ### Inclusive lower bound of the `collected_at` range.
+  from: DateTime?
+
+  ### Inclusive upper bound of the `collected_at` range.
+  to: DateTime?

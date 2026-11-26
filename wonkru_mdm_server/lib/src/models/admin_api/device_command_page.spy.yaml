@@ -1,0 +1,9 @@
+class: DeviceCommandPage
+fields:
+  items: List<DeviceCommand>
+
+  total: int
+
+  page: int
+
+  perPage: int

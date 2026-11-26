@@ -1,0 +1,6 @@
+class: SendPolicyCall
+fields:
+  policyId: int
+
+  ### When empty, every device on the policy is notified.
+  deviceIds: List<int>?

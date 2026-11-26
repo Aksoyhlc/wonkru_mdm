@@ -1,0 +1,23 @@
+class: DeviceReport
+table: device_reports
+fields:
+  device: Device?, relation(onDelete=Cascade)
+
+  ### Stored as a raw string because the value set is open: administrators can
+  ### define arbitrary report types via the `send_report` action, so a typed enum
+  ### would fail to deserialize unknown values. The module `DeviceReportType`
+  ### enum remains the typed contract for known types.
+  type: String
+
+  ### JSON report payload.
+  payload: String
+
+  createdAt: DateTime?
+  updatedAt: DateTime?
+
+indexes:
+  device_reports_type_index:
+    fields: type
+  ### Per-device report lookups; the FK column is not indexed automatically.
+  device_reports_device_id_index:
+    fields: deviceId

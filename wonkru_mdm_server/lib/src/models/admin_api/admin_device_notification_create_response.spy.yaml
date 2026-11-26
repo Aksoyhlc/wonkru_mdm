@@ -1,0 +1,5 @@
+class: AdminDeviceNotificationCreateResponse
+fields:
+  notification: DeviceNotification
+
+  deliveries: List<DeviceNotificationDeliveryRow>

@@ -1,0 +1,9 @@
+class: ApplicationVersionPage
+fields:
+  items: List<ApplicationVersion>
+
+  total: int
+
+  page: int
+
+  perPage: int

@@ -1,0 +1,34 @@
+class: DeviceSync
+table: device_syncs
+fields:
+  device: Device?, relation(onDelete=Cascade)
+  collectedAt: DateTime
+  syncType: String?
+
+  ### JSON payloads, one per state section.
+  deviceInfo: String?
+  mdmAppInfo: String?
+  appsInfo: String?
+  audioInfo: String?
+  batteryInfo: String?
+  certificatesInfo: String?
+  displayInfo: String?
+  networkInfo: String?
+  notificationInfo: String?
+  restrictionsInfo: String?
+  securityInfo: String?
+  storageInfo: String?
+  systemInfo: String?
+  otherInfo: String?
+  bsInfo: String?
+  stInfo: String?
+
+  createdAt: DateTime, default=now
+
+indexes:
+  device_syncs_device_id_index:
+    fields: deviceId
+  device_syncs_collected_at_index:
+    fields: collectedAt
+  device_syncs_device_id_collected_at_index:
+    fields: deviceId, collectedAt

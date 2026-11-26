@@ -1,0 +1,5 @@
+enum: NotificationType
+serialized: byName
+values:
+  - normal
+  # TODO: popup will be added later.

@@ -1,0 +1,27 @@
+class: PolicyFile
+table: policy_files
+fields:
+  policy: Policy?, relation(onDelete=Cascade)
+
+  ### Delete operations are fileless (only the device-side path is known), so
+  ### the relation is optional.
+  file: FileAsset?, relation(onDelete=Cascade, optional)
+
+  usageType: module:wonkru_core:FileOperationType
+
+  destinationPath: String?
+  replaceIfExists: bool, defaultModel=true
+  openAfterDownload: bool, defaultModel=false
+  createdAt: DateTime?
+  updatedAt: DateTime?
+
+indexes:
+  policy_files_policy_id_foreign:
+    fields: policyId
+  policy_files_file_id_foreign:
+    fields: fileId
+  ### A policy carries a given file only once; the DB blocks duplicate pivot
+  ### rows.
+  policy_files_policy_id_file_id_unique:
+    fields: policyId, fileId
+    unique: true

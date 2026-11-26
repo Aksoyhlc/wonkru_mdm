@@ -1,0 +1,10 @@
+class: RestrictionCatalogEntry
+fields:
+  name: String
+
+  ### Wire key, e.g. `no_camera`.
+  key: String
+
+  apiLevel: int
+
+  group: String?

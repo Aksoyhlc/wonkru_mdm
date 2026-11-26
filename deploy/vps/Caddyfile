@@ -1,0 +1,53 @@
+# Site addresses and TLS settings are supplied through environment variables.
+{
+	# ACME is used for domain-based HTTPS.
+	email {$ACME_EMAIL:admin@example.com}
+	auto_https disable_redirects
+}
+
+# Serve API, downloads, and CA files on the agent server origin.
+{$API_SITE} {
+	{$CADDY_TLS}
+	handle /storage/* {
+		reverse_proxy server:8082
+	}
+	handle /downloads/* {
+		reverse_proxy server:8082
+	}
+	handle {
+		reverse_proxy server:8080
+	}
+}
+
+# Panel and file downloads.
+{$WEB_SITE} {
+	{$CADDY_TLS}
+	reverse_proxy server:8082
+}
+
+# Optional HTTP certificate download. Port 8098 is unpublished by default.
+{$CA_BOOTSTRAP_SITE:http://:8098} {
+	@ca {
+		path /downloads/local-ca
+		method GET HEAD
+	}
+	handle @ca {
+		reverse_proxy server:8082
+	}
+	handle {
+		respond 404
+	}
+}
+
+# Optional API/download bridge for local or USB provisioning.
+{$BRIDGE_SITE:http://:8099} {
+	handle /storage/* {
+		reverse_proxy server:8082
+	}
+	handle /downloads/* {
+		reverse_proxy server:8082
+	}
+	handle {
+		reverse_proxy server:8080
+	}
+}

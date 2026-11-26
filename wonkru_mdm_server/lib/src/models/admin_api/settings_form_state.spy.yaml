@@ -1,0 +1,97 @@
+class: SettingsFormState
+fields:
+  defaultPolicyId: int?
+
+  mdmApkPackageName: String?
+
+  deviceUploadMaxSizeKb: int
+
+  uploadApkMaxSizeMb: int, defaultModel=256
+
+  uploadFileMaxSizeMb: int, defaultModel=256
+
+  uploadCertificateMaxSizeMb: int, defaultModel=10
+
+  uploadLauncherBackgroundMaxSizeMb: int, defaultModel=2
+
+  ### Read-only: the server's `maxRequestSize` ceiling (MB). No upload limit
+  ### may exceed it; ignored on save.
+  uploadCeilingMb: int, defaultModel=0
+
+  panelDefaultTheme: PanelTheme
+
+  panelBrandName: String
+
+  ### IANA zone name (e.g. `Europe/Istanbul`). When empty, the panel and
+  ### exports use UTC.
+  panelTimezone: String?
+
+  smtpEnabled: bool
+
+  smtpHost: String
+
+  smtpPort: int
+
+  smtpUsername: String
+
+  smtpPassword: String
+
+  smtpEncryption: SmtpEncryption
+
+  smtpFromAddress: String
+
+  smtpFromName: String
+
+  policyDefaultServerReportInterval: int
+
+  policyDefaultMinTimeMs: int
+
+  policyDefaultMinDistanceMeters: int
+
+  ### Clamped to one week.
+  policyDevicesUpdatedCheckDelayMinutes: int
+
+  deviceAlertsOnlineMinutes: int
+
+  offlineTimeout: int
+
+  deviceAlertsOfflineMinutes: int
+
+  deviceAlertsDuplicatePreventionHours: int
+
+  ### One record per alert type; every registered type is present and always
+  ### carries at least one channel.
+  systemAlertTypeChannels: List<AlertTypeChannels>
+
+  ### `HH:mm` entries.
+  backupScheduleCleanTimes: List<String>
+
+  ### `HH:mm` entries.
+  backupScheduleRunTimes: List<String>
+
+  ### `HH:mm` entries.
+  backupScheduleMonitorTimes: List<String>
+
+  backupNotifyUserIds: List<String>
+
+  wlogConsoleMinLevel: int
+
+  wlogDbMinLevel: int
+
+  wlogRemoteMinLevel: int
+
+  wlogMaxLocalEntries: int
+
+  wlogFlushThreshold: int
+
+  wlogIdleFlushSeconds: int
+
+  wlogRetentionDays: int
+
+  wlogRemoteEnabled: bool
+
+  wlogRemoteEndpoint: String
+
+  wlogRemoteAuthToken: String
+
+  wlogRemoteMaxRetries: int

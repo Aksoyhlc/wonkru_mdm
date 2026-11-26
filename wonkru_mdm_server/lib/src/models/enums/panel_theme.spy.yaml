@@ -1,0 +1,6 @@
+enum: PanelTheme
+serialized: byName
+values:
+  - light
+  - dark
+  - system

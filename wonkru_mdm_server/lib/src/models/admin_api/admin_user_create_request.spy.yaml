@@ -1,0 +1,12 @@
+class: AdminUserCreateRequest
+fields:
+  name: String?
+
+  ### Login email; stored in lower case.
+  email: String
+
+  password: String
+
+  status: AdminAccountStatus
+
+  blocked: bool

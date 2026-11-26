@@ -1,0 +1,70 @@
+# Files and directories created by pub
+.dart_tool/
+.packages
+
+# Pubspec overrides
+pubspec_overrides.yaml
+
+# Agents
+.dart_skills/
+.agents/
+.claude/
+.gemini/
+.cursor/
+.vscode/mcp.json
+.codex/
+.mcp.json
+
+# Internal working notes (AI agent sessions; not part of the product)
+.superpowers/
+
+# IDE
+.idea/
+*.iml
+
+# Local secrets
+.env
+.env.local
+key.properties
+
+# Signed Android release artifacts for the Docker build
+/wonkru_mdm_server/assets/agent/
+
+# OS junk
+.DS_Store
+
+# Serverpod Cloud CLI
+.scloud/
+
+# Nested Flutter app (wonkru_mdm_mobil) — no longer a separate repo, tracked by this repo
+wonkru_mdm_mobil/.agent/
+wonkru_mdm_mobil/.lingma/
+wonkru_mdm_mobil/.trae/
+wonkru_mdm_mobil/.vscode/
+wonkru_mdm_mobil/android/.gradle/
+wonkru_mdm_mobil/android/local.properties
+wonkru_mdm_mobil/**/build/
+
+# VPS dagitim sirlari
+deploy/vps/.env
+deploy/vps/certs/
+deploy/vps/backups/
+deploy/vps/.demo-import*/
+
+# Local credentials and export/build state
+.env
+.env.*
+!.env.example
+**/passwords.yaml
+*.key
+*.pem
+*.crt
+*.p12
+*.pfx
+*.jks
+*.keystore
+*.dump
+*.sqlite*
+node_modules/
+__pycache__/
+scripts/internal/

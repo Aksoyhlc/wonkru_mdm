@@ -1,0 +1,23 @@
+class: AdminNotification
+table: admin_notifications
+fields:
+  userId: UuidValue
+
+  ### One of the `SystemAlertType` values.
+  type: String
+
+  title: String
+
+  message: String
+
+  ### Serialized JSON payload; null when absent.
+  data: String?
+
+  ### Set when read; null while unread.
+  readAt: DateTime?
+
+  createdAt: DateTime
+
+indexes:
+  admin_notifications_user_id_index:
+    fields: userId

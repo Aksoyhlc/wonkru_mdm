@@ -1,0 +1,11 @@
+class: DashboardChart
+fields:
+  ### Bucket labels, in draw order.
+  labels: List<String>
+
+  ### Value of each label, in the same order.
+  values: List<int>
+
+  ### Hex colour of each value, for the charts that paint slices. Absent for
+  ### series that are drawn as a single line.
+  colors: List<String>?

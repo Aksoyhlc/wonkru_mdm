@@ -1,0 +1,21 @@
+class: DeviceSyncRow
+fields:
+  deviceSync: DeviceSync
+
+  ### `code` of the device, or `#id` when it has no code.
+  deviceCode: String
+
+  deviceName: String?
+
+  policyName: String?
+
+  policyVersion: int?
+
+  brand: String?
+
+  androidVersion: String?
+
+  batteryLevel: int?
+
+  ### `apps_info.totalInstalled` of this snapshot.
+  appsCount: int

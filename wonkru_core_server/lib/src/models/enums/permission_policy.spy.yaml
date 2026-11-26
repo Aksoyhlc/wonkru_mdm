@@ -1,0 +1,6 @@
+enum: PermissionPolicy
+serialized: byName
+values:
+  - prompt
+  - grant
+  - deny

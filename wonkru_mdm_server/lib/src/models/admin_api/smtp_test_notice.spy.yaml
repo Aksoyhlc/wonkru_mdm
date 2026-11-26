@@ -1,0 +1,10 @@
+class: SmtpTestNotice
+fields:
+  ### Stable key the panel localizes: `invalid_email`, `missing_host`,
+  ### `mailer_not_smtp`, `sent` or `failed`.
+  status: String
+
+  ### `success`, `warning` or `danger`.
+  severity: String
+
+  detail: String?

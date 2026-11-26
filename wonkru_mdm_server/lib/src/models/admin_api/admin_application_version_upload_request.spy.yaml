@@ -1,0 +1,15 @@
+class: AdminApplicationVersionUploadRequest
+fields:
+  applicationId: int
+
+  fileName: String
+
+  byteData: ByteData
+
+  versionName: String
+  versionCode: int
+  minSdkVersion: int?
+  targetSdkVersion: int?
+
+  ### Permission map keyed by permission name.
+  permissions: Map<String, String>?

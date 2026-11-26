@@ -1,0 +1,15 @@
+class: Setting
+table: settings
+fields:
+  name: String
+
+  ### Stored as text; may contain JSON.
+  value: String?
+
+  createdAt: DateTime?
+  updatedAt: DateTime?
+
+indexes:
+  settings_name_unique:
+    fields: name
+    unique: true

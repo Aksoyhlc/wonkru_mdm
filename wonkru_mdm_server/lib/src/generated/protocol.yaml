@@ -1,0 +1,183 @@
+emailIdp:
+  - login:
+  - startRegistration:
+  - verifyRegistrationCode:
+  - finishRegistration:
+  - startPasswordReset:
+  - verifyPasswordResetCode:
+  - finishPasswordReset:
+  - hasAccount:
+jwtRefresh:
+  - refreshAccessToken:
+adminActivity:
+  - list:
+  - actions:
+adminApplication:
+  - listApplications:
+  - export:
+  - getApplication:
+  - createApplication:
+  - updateApplication:
+  - deleteApplication:
+  - deleteApplications:
+  - listVersions:
+  - getVersion:
+  - createVersion:
+  - updateVersion:
+  - deleteVersion:
+  - uploadVersion:
+adminAuth:
+  - me:
+  - login:
+  - bootstrap:
+  - startTotpSetup:
+  - confirmTotpSetup:
+  - verifyTotp:
+  - disableTotp:
+  - changePassword:
+  - changeEmail:
+adminCertificate:
+  - list:
+  - get:
+  - parse:
+  - create:
+  - update:
+  - delete:
+  - uploadFile:
+  - downloadUrl:
+adminDashboard:
+  - deviceStats:
+  - alertStats:
+  - deviceDistribution:
+  - syncTrend:
+adminDevice:
+  - list:
+  - export:
+  - get:
+  - reportPdf:
+  - stateCache:
+  - groupIds:
+  - applications:
+  - reports:
+  - update:
+  - delete:
+  - assignPolicy:
+  - assignGroups:
+  - sendPolicyUpdate:
+  - sendCommand:
+  - bulkStatus:
+  - bulkCommands:
+  - commands:
+  - recentCommands:
+  - duplicatePolicy:
+adminDeviceGroup:
+  - list:
+  - get:
+  - create:
+  - update:
+  - delete:
+adminDeviceLog:
+  - list:
+  - get:
+  - create:
+  - delete:
+  - stats:
+  - levelDistribution:
+  - trend:
+  - export:
+adminDeviceNotification:
+  - list:
+  - get:
+  - deliveries:
+  - create:
+  - delete:
+adminDeviceSync:
+  - list:
+  - export:
+  - get:
+  - applications:
+adminFile:
+  - list:
+  - get:
+  - groupIds:
+  - groupMembersForFiles:
+  - downloadUrl:
+  - create:
+  - update:
+  - delete:
+  - assignGroups:
+  - uploadFile:
+adminFileGroup:
+  - list:
+  - get:
+  - fileIds:
+  - create:
+  - update:
+  - delete:
+  - assignFiles:
+adminNotification:
+  - list:
+  - unreadCount:
+  - markRead:
+  - markAllRead:
+adminPolicy:
+  - list:
+  - export:
+  - sendToDevices:
+  - get:
+  - create:
+  - update:
+  - delete:
+  - setDefault:
+  - duplicate:
+  - preview:
+  - applications:
+  - files:
+  - certificates:
+  - attachApplication:
+  - updateApplication:
+  - detachApplication:
+  - reorderApplications:
+  - attachFile:
+  - updateFile:
+  - detachFile:
+  - attachCertificate:
+  - updateCertificate:
+  - detachCertificate:
+adminProvisioningProfile:
+  - list:
+  - get:
+  - defaultConfig:
+  - create:
+  - update:
+  - delete:
+adminSettings:
+  - get:
+  - getMdmApkUrl:
+  - save:
+  - getTimezone:
+  - getEnrollmentKey:
+  - rotateEnrollmentKey:
+  - sendSmtpTestMail:
+adminUpload:
+  - getUploadDescription:
+  - verifyUpload:
+  - fileChecksum:
+  - publicDownloadUrl:
+adminUser:
+  - list:
+  - get:
+  - create:
+  - update:
+  - delete:
+device:
+  - register:
+  - connect:
+  - config:
+  - sync:
+  - report:
+  - log:
+  - policyChange:
+  - passwordCheck:
+  - notificationAck:
+  - uploadFile:

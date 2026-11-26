@@ -1,0 +1,15 @@
+# Generated Pub files
+.dart_tool/
+.packages
+
+# Build output
+build/
+
+# dartdoc output
+doc/api/
+
+# Embedded PostgreSQL runtime files (data, socket, PID)
+.serverpod/
+
+# Embedded PostgreSQL credentials
+config/passwords.yaml

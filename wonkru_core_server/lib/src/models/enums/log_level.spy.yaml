@@ -1,0 +1,11 @@
+### Serialized by name; the `device_log.level` column stores an int (`byIndex`)
+### through a separate variant.
+enum: LogLevel
+serialized: byName
+values:
+  - verbose
+  - debug
+  - info
+  - warning
+  - error
+  - fatal

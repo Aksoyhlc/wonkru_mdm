@@ -1,0 +1,9 @@
+class: DevicePage
+fields:
+  items: List<Device>
+
+  total: int
+
+  page: int
+
+  perPage: int

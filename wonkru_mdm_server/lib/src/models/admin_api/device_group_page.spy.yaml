@@ -1,0 +1,9 @@
+class: DeviceGroupPage
+fields:
+  items: List<DeviceGroupRow>
+
+  total: int
+
+  page: int
+
+  perPage: int

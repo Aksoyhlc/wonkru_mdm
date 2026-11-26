@@ -1,0 +1,84 @@
+class: Device
+table: devices
+fields:
+  code: String
+
+  uuid: String?
+  name: String?
+
+  ### SHA-256 (hex) of the secret token authenticating the device.
+  ###
+  ### The plaintext token is returned once by `device.register` and never
+  ### stored; see `DeviceAuthService.hashToken`. Server only: the panel never
+  ### receives it.
+  authToken: String?, scope=serverOnly
+
+  policy: Policy?, relation(onDelete=SetNull, optional)
+
+  policyVersion: int?
+  lastPolicyUpdate: DateTime?
+
+  group: DeviceGroup?, relation(onDelete=SetNull, optional)
+
+  ### Auth user that manages the device. The auth user table
+  ### (`serverpod_auth_core_user`) belongs to a framework module, so no real FK
+  ### relation can be declared here; the field stays a plain `UuidValue`,
+  ### matching `admin_profiles.userId`.
+  userId: UuidValue?
+
+  manufacturer: String?
+  model: String?
+  brand: String?
+  serialNo: String?
+  androidVersion: String?
+  sdkVersion: int?
+  agentVersionName: String?
+  agentVersionCode: int?
+  batteryLevel: int?
+  ipAddress: String?
+  isRooted: bool, defaultModel=false
+  isLauncherMode: bool, defaultModel=false
+  totalStorageBytes: int?
+  freeStorageBytes: int?
+  collectedAt: DateTime?
+  lastSeenAt: DateTime?
+  firstSeenAt: DateTime?
+  createdAt: DateTime?
+  updatedAt: DateTime?
+  deletedAt: DateTime?
+
+  ### JSON list of applications the user must keep running.
+  mustUseApplications: String?
+
+indexes:
+  devices_code_unique:
+    fields: code
+    unique: true
+  devices_uuid_unique:
+    fields: uuid
+    unique: true
+  devices_auth_token_unique:
+    fields: authToken
+    unique: true
+  devices_policy_id_index:
+    fields: policyId
+  devices_group_id_index:
+    fields: groupId
+  devices_manufacturer_index:
+    fields: manufacturer
+  devices_model_index:
+    fields: model
+  devices_android_version_index:
+    fields: androidVersion
+  devices_is_rooted_index:
+    fields: isRooted
+  devices_collected_at_index:
+    fields: collectedAt
+  devices_last_seen_at_index:
+    fields: lastSeenAt
+  devices_name_index:
+    fields: name
+  devices_user_id_index:
+    fields: userId
+  idx_devices_group_deleted:
+    fields: groupId, deletedAt

@@ -1,0 +1,10 @@
+class: FileGroupPage
+fields:
+  items: List<FileGroupRow>
+
+  total: int
+
+  ### One-based page number.
+  page: int
+
+  perPage: int

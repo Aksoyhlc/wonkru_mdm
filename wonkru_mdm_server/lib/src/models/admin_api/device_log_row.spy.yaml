@@ -1,0 +1,6 @@
+class: DeviceLogRow
+fields:
+  log: DeviceLog
+
+  ### `name (code)`, or just the code when the device has no name.
+  deviceLabel: String?

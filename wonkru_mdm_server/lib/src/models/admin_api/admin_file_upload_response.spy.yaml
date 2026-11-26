@@ -1,0 +1,18 @@
+class: AdminFileUploadResponse
+fields:
+  ### Path of the file inside [disk].
+  filePath: String
+
+  disk: String
+
+  ### SHA-256 of the uploaded bytes.
+  fileHashSha256: String
+
+  sizeBytes: int
+
+  ### Extension from the uploaded name, without the leading dot.
+  fileExtension: String?
+
+  mimeType: String?
+
+  publicUrl: String?

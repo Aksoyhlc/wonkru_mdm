@@ -1,0 +1,8 @@
+class: DeviceNotificationDeliveryRow
+fields:
+  delivery: DeviceNotificationDevice
+
+  ### Target device; null only when the row outlived it.
+  device: Device?
+
+  groupNames: List<String>

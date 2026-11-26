@@ -1,0 +1,10 @@
+class: AdminFileUploadRequest
+fields:
+  fileName: String
+
+  byteData: ByteData
+
+  ### Storage id: `private` or `public`; defaults to `private`.
+  disk: String?
+
+  mimeType: String?

@@ -1,0 +1,33 @@
+class: AdminProfile
+table: admin_profiles
+fields:
+  userId: UuidValue
+
+  ### Panel access is granted only while `active`; the fail-closed default is
+  ### `disabled`.
+  status: AdminAccountStatus, defaultModel=disabled, defaultPersist=disabled
+
+  totpSecret: String?
+
+  ### JSON array of two-factor recovery codes.
+  recoveryCodes: String?
+
+  ### Last accepted TOTP time step; blocks code replay.
+  totpLastUsedCounter: int?
+
+  ### Last successful panel login; null if never.
+  lastLoginAt: DateTime?
+
+  ### Consecutive failed code attempts; drives lockout.
+  totpFailedAttempts: int, defaultModel=0
+
+  ### Attempts are rejected until this time; null when unlocked.
+  totpLockedUntil: DateTime?
+
+  createdAt: DateTime?
+  updatedAt: DateTime?
+
+indexes:
+  admin_profiles_user_id_unique:
+    fields: userId
+    unique: true

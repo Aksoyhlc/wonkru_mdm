@@ -1,0 +1,15 @@
+const Map<String, String> deviceGroupsTr = {
+  'deviceGroups.empty_title': 'Cihaz grubu bulunamadı',
+  'deviceGroups.empty_body': 'İlk cihaz grubunu ekleyin.',
+  'deviceGroups.new_group': 'Yeni Grup',
+  'deviceGroups.edit_title': 'Grubu Düzenle',
+  'deviceGroups.name_required': 'Grup adı boş olamaz',
+  'deviceGroups.name_hint': 'Örn. Saha Ekibi',
+  'deviceGroups.device_count': 'Cihaz Sayısı',
+  'deviceGroups.list_devices_tooltip': 'Bu gruptaki cihazları listele',
+  'deviceGroups.created': 'Grup eklendi',
+  'deviceGroups.updated': 'Grup güncellendi',
+  'deviceGroups.delete_title': 'Grup Sil',
+  'deviceGroups.delete_confirm': '"@name" grubu kalıcı olarak silinsin mi?',
+  'deviceGroups.deleted': 'Grup silindi',
+};

@@ -1,0 +1,28 @@
+class: ApplicationVersion
+table: application_versions
+fields:
+  application: Application?, relation(onDelete=Cascade)
+  versionName: String
+  versionCode: int
+  filePath: String?
+  fileSizeBytes: int?
+  checksumSha256: String?
+  minSdkVersion: int?
+  targetSdkVersion: int?
+  isActive: bool, defaultModel=true
+
+  ### JSON list of permissions declared by the APK.
+  permissions: String?
+
+  isDefault: bool, defaultModel=false
+  createdAt: DateTime?
+  updatedAt: DateTime?
+
+indexes:
+  application_versions_application_id_foreign:
+    fields: applicationId
+  ### One versionCode per application; the DB blocks duplicate rows from
+  ### concurrent uploads.
+  application_versions_application_id_version_code_unique:
+    fields: applicationId, versionCode
+    unique: true

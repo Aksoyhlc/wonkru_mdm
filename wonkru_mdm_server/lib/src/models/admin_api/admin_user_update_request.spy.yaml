@@ -1,0 +1,15 @@
+class: AdminUserUpdateRequest
+fields:
+  authUserId: UuidValue
+
+  name: String?
+
+  ### Login email; stored in lower case.
+  email: String
+
+  ### New password; null leaves the current one.
+  password: String?
+
+  status: AdminAccountStatus
+
+  blocked: bool

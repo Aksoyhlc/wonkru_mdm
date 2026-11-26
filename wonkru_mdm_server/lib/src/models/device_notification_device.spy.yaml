@@ -1,0 +1,21 @@
+class: DeviceNotificationDevice
+table: device_notification_devices
+fields:
+  deviceNotification: DeviceNotification?, relation(onDelete=Cascade)
+  device: Device?, relation(onDelete=Cascade)
+  status: module:wonkru_core:NotificationDeliveryStatus
+  sentAt: DateTime?
+  receivedAt: DateTime?
+  createdAt: DateTime?
+  updatedAt: DateTime?
+
+indexes:
+  device_notification_device_unique:
+    fields: deviceNotificationId, deviceId
+    unique: true
+  device_notification_devices_status_index:
+    fields: status
+  device_notification_devices_sent_at_index:
+    fields: sentAt
+  device_notification_devices_received_at_index:
+    fields: receivedAt

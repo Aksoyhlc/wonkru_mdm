@@ -1,0 +1,108 @@
+name: Release Docker image
+
+on:
+  push:
+    tags: ['v*']
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: Existing stable Git tag (vX.Y.Z)
+        type: string
+        required: true
+
+concurrency:
+  group: wonkru-mdm-release-image
+  queue: max
+
+jobs:
+  publish:
+    if: github.repository == 'Aksoyhlc/wonkru_mdm'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    env:
+      IMAGE: wonkrumdm/wonkrumdm
+      ANDROID_RELEASE_CERT_SHA256: 2ba62f2e2abdbec9c540d7c71c6c53d0c69664dc995741ea290cf705812453dc
+      RELEASE_TAG: ${{ github.event_name == 'workflow_dispatch' && inputs.tag || github.ref_name }}
+    steps:
+      - name: Validate release tag
+        shell: bash
+        run: |
+          pattern='^v(0|[1-9][0-9]{0,8})\.(0|[1-9][0-9]{0,8})\.(0|[1-9][0-9]{0,8})$'
+          if [[ ! "$RELEASE_TAG" =~ $pattern ]]; then
+            echo 'Choose an existing stable vX.Y.Z tag.' >&2
+            exit 1
+          fi
+
+      - uses: actions/checkout@v4
+        with:
+          ref: refs/tags/${{ env.RELEASE_TAG }}
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Prepare the signed Android release asset
+        id: agent
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          staging="$(mktemp -d)"
+          trap 'rm -rf "$staging"' EXIT
+          gh release download "$RELEASE_TAG" --dir "$staging" \
+            --pattern wonkru-mdm.apk --pattern wonkru-mdm-apk.json
+          bash deploy/prepare-agent-apk.sh "$staging/wonkru-mdm.apk"
+          cmp "$staging/wonkru-mdm-apk.json" wonkru_mdm_server/assets/agent/wonkru-mdm-apk.json
+          apk_cert="$(jq -er .certificateSha256 wonkru_mdm_server/assets/agent/wonkru-mdm-apk.json)"
+          if [[ "$apk_cert" != "$ANDROID_RELEASE_CERT_SHA256" ]]; then
+            echo "The APK is not signed by the Wonkru MDM release certificate." >&2
+            exit 1
+          fi
+          printf 'sha256=%s\n' "$(jq -er .sha256 wonkru_mdm_server/assets/agent/wonkru-mdm-apk.json)" >> "$GITHUB_OUTPUT"
+
+      - uses: docker/setup-qemu-action@v3
+        with:
+          platforms: arm64
+      - uses: docker/setup-buildx-action@v3
+      - uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      - name: Check whether the versioned image already exists
+        id: image
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: bash .github/scripts/release-image.sh check
+
+      - uses: subosito/flutter-action@v2
+        if: steps.image.outputs.build == 'true'
+        with:
+          flutter-version: '3.44.4'
+
+      - name: Build the panel
+        if: steps.image.outputs.build == 'true'
+        working-directory: wonkru_mdm_server
+        run: |
+          dart pub global activate serverpod_cli 4.1.2
+          export PATH="${PUB_CACHE:-$HOME/.pub-cache}/bin:$PATH"
+          serverpod run flutter_build
+          [[ -s web/app/index.html ]]
+
+      - name: Build and push the versioned image
+        if: steps.image.outputs.build == 'true'
+        env:
+          AGENT_SHA256: ${{ steps.agent.outputs.sha256 }}
+        run: |
+          docker buildx build --pull \
+            --file wonkru_mdm_server/Dockerfile \
+            --platform linux/amd64,linux/arm64 \
+            --annotation "index:org.opencontainers.image.version=$RELEASE_TAG" \
+            --annotation "index:org.opencontainers.image.revision=$(git rev-parse HEAD)" \
+            --annotation "index:io.wonkrumdm.agent.sha256=$AGENT_SHA256" \
+            --tag "$IMAGE:$RELEASE_TAG" \
+            --output type=registry,oci-mediatypes=true \
+            .
+
+      - name: Publish the GitHub Release and promote the latest image
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: bash .github/scripts/release-image.sh publish

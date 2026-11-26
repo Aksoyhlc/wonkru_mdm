@@ -1,0 +1,40 @@
+class: DeviceListRequest
+fields:
+  page: int, defaultModel=1
+
+  perPage: int, defaultModel=25
+
+  search: String?
+
+  sortBy: String?
+
+  sortDesc: bool, defaultModel=false
+
+  policyId: int?
+
+  deviceGroupId: int?
+
+  ### `true` keeps devices seen within the offline timeout, `false` the rest.
+  isOnline: bool?
+
+  isRooted: bool?
+
+  isLauncherMode: bool?
+
+  brand: String?
+
+  manufacturer: String?
+
+  androidVersion: String?
+
+  ### `true` keeps devices with a critical battery, `false` the rest.
+  criticalBattery: bool?
+
+  ### `true` keeps devices with critical storage, `false` the rest.
+  criticalStorage: bool?
+
+  ### `true` keeps devices not seen in the last 24 hours, `false` the rest.
+  notSeen24h: bool?
+
+  ### `true` keeps devices without a policy, `false` the rest.
+  noPolicy: bool?

@@ -1,0 +1,10 @@
+class: PolicyPage
+fields:
+  items: List<Policy>
+
+  total: int
+
+  ### One-based page number.
+  page: int
+
+  perPage: int

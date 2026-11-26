@@ -1,0 +1,9 @@
+class: CertificatePage
+fields:
+  items: List<Certificate>
+
+  total: int
+
+  page: int
+
+  perPage: int

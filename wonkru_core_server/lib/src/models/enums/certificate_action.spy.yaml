@@ -1,0 +1,5 @@
+enum: CertificateAction
+serialized: byName
+values:
+  - install
+  - uninstall

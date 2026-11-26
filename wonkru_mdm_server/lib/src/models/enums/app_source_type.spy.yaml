@@ -1,0 +1,7 @@
+enum: AppSourceType
+serialized: byName
+values:
+  - apk
+  - play_store
+  - app_store
+  - other

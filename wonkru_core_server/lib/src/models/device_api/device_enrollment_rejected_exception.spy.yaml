@@ -1,0 +1,7 @@
+### Thrown by `device.register` when the enrollment key is missing or wrong.
+###
+### Distinct from [DeviceUnauthenticatedException] so the agent stops automatic
+### re-enrollment instead of retrying.
+exception: DeviceEnrollmentRejectedException
+fields:
+  message: String

@@ -1,0 +1,12 @@
+class: DeviceFileUploadResponse
+fields:
+  id: int
+
+  name: String
+
+  ### Path inside the public storage.
+  filePath: String
+
+  sizeBytes: int
+
+  publicUrl: String?

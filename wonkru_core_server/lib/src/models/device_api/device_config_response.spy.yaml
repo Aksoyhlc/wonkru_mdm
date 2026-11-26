@@ -1,0 +1,6 @@
+class: DeviceConfigResponse
+fields:
+  deviceCode: String?
+
+  ### Assigned policy payload as JSON; null when the device has no policy.
+  policy: String?

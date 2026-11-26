@@ -1,0 +1,13 @@
+### Thrown by device RPCs when the token is valid but the request carries a
+### different `deviceUuid` than the token was issued for.
+###
+### Distinct from [DeviceUnauthenticatedException]: the enrollment is still
+### valid, so the agent must not re-register (that would create a ghost device).
+### It adopts the server's identity from [deviceUuid] / [deviceCode] and retries.
+exception: DeviceIdentityMismatchException
+fields:
+  message: String
+
+  deviceUuid: String?
+
+  deviceCode: String?

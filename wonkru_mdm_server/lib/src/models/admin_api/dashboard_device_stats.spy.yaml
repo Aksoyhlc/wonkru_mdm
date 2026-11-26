@@ -1,0 +1,13 @@
+class: DashboardDeviceStats
+fields:
+  totalDevices: int
+
+  ### Devices seen within [onlineMinutes].
+  onlineDevices: int
+
+  ### [totalDevices] minus [onlineDevices].
+  offlineDevices: int
+
+  ### Window the dashboard counted as online, from the `offline_timeout`
+  ### setting.
+  onlineMinutes: int

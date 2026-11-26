@@ -1,0 +1,14 @@
+class: DeviceDeviceGroup
+table: device_device_group
+fields:
+  device: Device?, relation(onDelete=Cascade)
+  deviceGroup: DeviceGroup?, relation(onDelete=Cascade)
+  createdAt: DateTime?
+  updatedAt: DateTime?
+
+indexes:
+  device_device_group_device_id_device_group_id_unique:
+    fields: deviceId, deviceGroupId
+    unique: true
+  device_device_group_device_group_id_foreign:
+    fields: deviceGroupId

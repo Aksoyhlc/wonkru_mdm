@@ -1,0 +1,7 @@
+enum: CertificateFormat
+serialized: byName
+values:
+  - PEM
+  - DER
+  - PKCS12
+  - PKCS7

@@ -1,0 +1,18 @@
+class: PolicyListRequest
+fields:
+  ### One-based page number.
+  page: int, defaultModel=1
+
+  perPage: int, defaultModel=25
+
+  ### Free text search applied to the policy name.
+  search: String?
+
+  sortBy: String?
+
+  sortDesc: bool, defaultModel=false
+
+  ### Ternary filter: `true` active, `false` inactive, null both.
+  isActive: bool?
+
+  defaultPolicy: bool?

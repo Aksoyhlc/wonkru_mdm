@@ -1,0 +1,87 @@
+class: DeviceStateCache
+table: device_state_cache
+fields:
+  device: Device?, relation(onDelete=Cascade)
+  deviceSync: DeviceSync?, relation(onDelete=Cascade)
+  collectedAt: DateTime
+  updatedAt: DateTime, default=now
+
+  manufacturer: String?
+  model: String?
+  brand: String?
+  androidVersion: String?
+  sdkInt: int?
+  securityPatch: String?
+  buildFingerprint: String?
+  isPhysicalDevice: bool?
+  isLowRamDevice: bool?
+  batteryLevel: int?
+  batteryState: String?
+  isPowerSaveMode: bool?
+  isOnline: bool?
+  currentSsid: String?
+  currentBssid: String?
+  wifiRssi: int?
+  wifiLinkSpeed: int?
+  wifiFrequency: int?
+  ipv4: String?
+  ipv6: String?
+  gateway: String?
+  subnetMask: String?
+  networkLastSsid: String?
+  isRooted: bool?
+  adbEnabled: bool?
+  developerOptionsEnabled: bool?
+  unknownSourcesAllowed: bool?
+  encryptionStatus: String?
+  playProtectStatus: bool?
+  passwordIsSufficient: bool?
+  passwordQuality: int?
+  passwordComplexityLevel: int?
+  hasSecureLock: bool?
+  isLocked: bool?
+  isDeviceOwner: bool?
+  totalStorageBytes: int?
+  freeStorageBytes: int?
+  usedStorageBytes: int?
+  storageUsagePct: double?
+  storageFreePct: double?
+  totalInstalledApps: int?
+  systemAppsCount: int?
+  userAppsCount: int?
+  managedAppsCount: int?
+  installedCaCertCount: int?
+  hasWonkruMdmCa: bool?, defaultModel=false
+  hasWonkruLocalCa: bool?, defaultModel=false
+  brightness: int?
+  screenTimeoutMs: int?
+  screenWidthPx: int?
+  screenHeightPx: int?
+  launcherModeEnabled: bool?
+  watchdogServiceEnabled: bool?
+  flutterAliveAt: DateTime?
+  bsDeviceUuid: String?
+  bsDeviceCode: String?
+  serverUrl: String?
+  stDeviceUuid: String?
+  stDeviceCode: String?
+  lastPolicyUpdateAt: DateTime?
+  lastConfigFetchTime: String?
+  stLastSyncAt: DateTime?
+  restrictionCount: int?
+
+indexes:
+  device_state_cache_device_id_unique:
+    fields: deviceId
+    unique: true
+  uq_dsc_sync:
+    fields: deviceSyncId
+    unique: true
+  idx_dsc_collected_at:
+    fields: collectedAt
+  idx_dsc_is_online:
+    fields: isOnline
+  idx_dsc_battery_level:
+    fields: batteryLevel
+  idx_dsc_storage_pct:
+    fields: storageUsagePct

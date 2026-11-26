@@ -1,0 +1,17 @@
+### Progress summary of a bulk command send. Not a table: `device_commands`
+### rows are grouped and counted by `bulkId`.
+class: DeviceCommandBulkStatus
+fields:
+  bulkId: String
+
+  total: int
+
+  pending: int
+
+  sent: int
+
+  acked: int
+
+  timeout: int
+
+  error: int

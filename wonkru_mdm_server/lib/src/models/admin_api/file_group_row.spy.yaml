@@ -1,0 +1,5 @@
+class: FileGroupRow
+fields:
+  group: FileGroup
+
+  fileCount: int

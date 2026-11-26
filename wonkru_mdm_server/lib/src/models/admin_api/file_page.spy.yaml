@@ -1,0 +1,10 @@
+class: FilePage
+fields:
+  items: List<FileAsset>
+
+  total: int
+
+  ### One-based page number.
+  page: int
+
+  perPage: int

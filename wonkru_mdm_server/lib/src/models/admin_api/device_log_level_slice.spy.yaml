@@ -1,0 +1,11 @@
+class: DeviceLogLevelSlice
+fields:
+  ### Level name, e.g. `ERROR`.
+  label: String
+
+  ### Level value the rows carry, e.g. 4.
+  level: int
+
+  count: int
+
+  color: String

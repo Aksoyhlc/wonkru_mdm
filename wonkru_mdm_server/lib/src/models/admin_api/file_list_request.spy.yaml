@@ -1,0 +1,19 @@
+class: FileListRequest
+fields:
+  ### One-based page number.
+  page: int, defaultModel=1
+
+  perPage: int, defaultModel=25
+
+  ### Free text search across display name, path, public url and checksum.
+  search: String?
+
+  sortBy: String?
+
+  sortDesc: bool, defaultModel=false
+
+  extensions: List<String>?
+
+  mimeTypes: List<String>?
+
+  fileGroupIds: List<int>?

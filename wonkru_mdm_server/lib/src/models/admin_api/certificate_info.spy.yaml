@@ -1,0 +1,25 @@
+class: CertificateInfo
+fields:
+  ### Formatted issuer DN, e.g. `CN=Root CA, O=Example`.
+  issuer: String?
+
+  subject: String?
+
+  ### Uppercase hexadecimal serial number, without a `0x` prefix.
+  serialNumber: String?
+
+  validFrom: DateTime?
+
+  validUntil: DateTime?
+
+  ### Uppercase hexadecimal SHA-256 fingerprint of the DER body.
+  fingerprintSha256: String?
+
+  ### Detected encoding: `PEM`, `DER`, `PKCS12` or `PKCS7`.
+  format: String?
+
+  ### Kind detected from its extensions: `CA`, `CLIENT` or `SERVER`.
+  certificateType: String?
+
+  ### PEM of the first certificate; null when none could be read.
+  certificatePem: String?

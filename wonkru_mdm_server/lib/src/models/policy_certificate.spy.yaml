@@ -1,0 +1,13 @@
+class: PolicyCertificate
+table: policy_certificates
+fields:
+  policy: Policy?, relation(onDelete=Cascade)
+  certificate: Certificate?, relation(onDelete=Cascade)
+  action: module:wonkru_core:CertificateAction?
+  createdAt: DateTime?
+  updatedAt: DateTime?
+
+indexes:
+  policy_certificates_policy_id_certificate_id_unique:
+    fields: policyId, certificateId
+    unique: true

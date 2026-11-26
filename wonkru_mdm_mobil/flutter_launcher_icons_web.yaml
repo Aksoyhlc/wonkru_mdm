@@ -1,0 +1,10 @@
+# From wonkru_mdm_mobil:
+# dart run flutter_launcher_icons -f ../wonkru_mdm_mobil/flutter_launcher_icons_web.yaml -p ../wonkru_mdm_flutter
+flutter_launcher_icons:
+  android: false
+  ios: false
+  web:
+    generate: true
+    image_path: "../wonkru_mdm_mobil/assets/images/logo2.png"
+    background_color: "#141e25"
+    theme_color: "#141e25"

@@ -1,0 +1,9 @@
+class: AdminUserPage
+fields:
+  items: List<AdminUserRow>
+
+  total: int
+
+  page: int
+
+  perPage: int

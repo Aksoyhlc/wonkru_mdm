@@ -1,0 +1,8 @@
+enum: CertificateType
+serialized: byName
+values:
+  - CA
+  - CLIENT
+  - SERVER
+  - USER
+  - PKCS12

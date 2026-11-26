@@ -1,0 +1,8 @@
+### An unencrypted connection is stored as an empty string; the service layer
+### maps it to `none`.
+enum: SmtpEncryption
+serialized: byName
+values:
+  - none
+  - tls
+  - ssl

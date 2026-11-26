@@ -1,0 +1,9 @@
+class: FileGroup
+table: file_groups
+fields:
+  name: String
+  description: String?
+  color: String?
+  isActive: bool, defaultModel=true
+  createdAt: DateTime?
+  updatedAt: DateTime?

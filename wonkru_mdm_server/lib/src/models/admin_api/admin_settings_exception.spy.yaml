@@ -1,0 +1,8 @@
+### Thrown when a settings value is rejected; carries a message the panel can
+### show directly.
+exception: AdminSettingsException
+fields:
+  message: String
+
+  ### Name of the offending field in `SettingsFormState`; null when unknown.
+  field: String?

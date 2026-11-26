@@ -1,0 +1,6 @@
+class: DevicePolicyChangeRequest
+fields:
+  deviceUuid: String
+
+  token: String
+  policyId: int

@@ -1,0 +1,7 @@
+class: AdminTotpSetup
+fields:
+  ### Base32 TOTP secret.
+  secret: String
+
+  ### `otpauth://` URI for authenticator apps.
+  otpauthUri: String

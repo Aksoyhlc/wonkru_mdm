@@ -1,0 +1,6 @@
+enum: FileOperationType
+serialized: byName
+values:
+  - download
+  - delete
+  - open

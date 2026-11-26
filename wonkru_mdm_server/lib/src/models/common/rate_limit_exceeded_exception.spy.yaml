@@ -1,0 +1,12 @@
+### Thrown when an endpoint's rate limit is exceeded.
+###
+### Kept under the neutral `common/` path because both device and panel
+### endpoints throw it, so the generated client exposes it to both the panel and
+### the mobile agent. Gives the client a typed error it can wait and retry on
+### instead of a generic 500.
+exception: RateLimitExceededException
+fields:
+  message: String
+
+  ### Seconds to wait before retrying (at least 1).
+  retryAfterSeconds: int

@@ -1,0 +1,14 @@
+class: AdminDeviceNotificationCreateRequest
+fields:
+  title: String
+
+  message: String
+
+  ### Raw string; the service maps it via `NotificationType.fromJson`.
+  type: String
+
+  ### Extra key/value pairs stored as JSON; blank keys are dropped.
+  extra: Map<String, String>?
+
+  ### At least one required; a delivery row is stored per device.
+  deviceIds: List<int>

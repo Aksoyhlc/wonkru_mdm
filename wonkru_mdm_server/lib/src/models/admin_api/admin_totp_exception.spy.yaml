@@ -1,0 +1,3 @@
+exception: AdminTotpException
+fields:
+  message: String

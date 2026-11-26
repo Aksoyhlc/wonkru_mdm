@@ -1,0 +1,16 @@
+class: DeviceRegisterRequest
+fields:
+  ### Optional client-provided code; ignored when already taken.
+  deviceCode: String?
+
+  manufacturer: String?
+  model: String?
+  brand: String?
+
+  serialNo: String?
+
+  version: DeviceVersionInfo?
+
+  ### Global enrollment key from the provisioning QR or the install page.
+  ### Nullable only so older agents deserialize and get a typed rejection.
+  enrollmentKey: String?
