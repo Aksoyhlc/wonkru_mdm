@@ -55,11 +55,7 @@ class SettingsController extends GetxController {
     'uploadCertificateMaxSizeMb',
     'uploadLauncherBackgroundMaxSizeMb',
     'offlineTimeout',
-    'deviceAlertsOnlineMinutes',
     'deviceAlertsOfflineMinutes',
-    'policyDefaultServerReportInterval',
-    'policyDefaultMinTimeMs',
-    'policyDefaultMinDistanceMeters',
     'policyDevicesUpdatedCheckDelayMinutes',
     'deviceAlertsDuplicatePreventionHours',
     'wlogConsoleMinLevel',
@@ -86,7 +82,7 @@ class SettingsController extends GetxController {
 
   static const _boolFields = <String>['wlogRemoteEnabled', 'smtpEnabled'];
 
-  static const _enumFields = <String>['panelDefaultTheme', 'smtpEncryption'];
+  static const _enumFields = <String>['smtpEncryption'];
 
   static const _key = 'settings.';
 
@@ -112,8 +108,6 @@ class SettingsController extends GetxController {
     'settings.uploadCertificateMaxSizeMb': (1, null),
     'settings.uploadLauncherBackgroundMaxSizeMb': (1, null),
     'settings.smtpPort': (1, 65535),
-    'settings.policyDefaultServerReportInterval': (20, null),
-    'settings.policyDefaultMinTimeMs': (1000, null),
     'settings.wlogMaxLocalEntries': (100, null),
   };
 
@@ -312,13 +306,6 @@ class SettingsController extends GetxController {
       ),
   ];
 
-  /// Falls back to [PanelTheme.system] for empty or unknown input.
-  static PanelTheme _panelThemeFrom(String value) =>
-      PanelTheme.values.firstWhere(
-        (theme) => theme.name == value,
-        orElse: () => PanelTheme.system,
-      );
-
   /// Empty input means "not set": null goes to the server, and the panel then
   /// shows UTC behind the warning bar.
   static String? _timezoneOrNull(String value) {
@@ -352,6 +339,15 @@ class SettingsController extends GetxController {
     String value(String field) => input.getValue('$_key$field');
 
     return SettingsFormState.fromJson({
+      // Preserve non-editable values required by the settings API.
+      'panelDefaultTheme':
+          previous['panelDefaultTheme'] ?? PanelTheme.system.name,
+      'deviceAlertsOnlineMinutes': previous['deviceAlertsOnlineMinutes'] ?? 0,
+      'policyDefaultServerReportInterval':
+          previous['policyDefaultServerReportInterval'] ?? 0,
+      'policyDefaultMinTimeMs': previous['policyDefaultMinTimeMs'] ?? 0,
+      'policyDefaultMinDistanceMeters':
+          previous['policyDefaultMinDistanceMeters'] ?? 0,
       for (final field in _intFields)
         field: int.tryParse(value(field).trim()) ?? previous[field] ?? 0,
       for (final field in _textFields) field: value(field),
@@ -360,7 +356,6 @@ class SettingsController extends GetxController {
       'mdmApkPackageName': value('mdmApkPackageName'),
       // Read-only; the server ignores it on save.
       'uploadCeilingMb': previous['uploadCeilingMb'] ?? 0,
-      'panelDefaultTheme': _panelThemeFrom(value('panelDefaultTheme')).name,
       'panelTimezone': _timezoneOrNull(value('panelTimezone')),
       'smtpEncryption': _smtpEncryptionFrom(value('smtpEncryption')).name,
       'systemAlertTypeChannels': [

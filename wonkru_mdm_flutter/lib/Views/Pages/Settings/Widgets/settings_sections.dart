@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:wonkru_mdm_client/wonkru_mdm_client.dart';
 
 import '../../../../Core/L10n/L.dart';
 import '../../../../Core/Theme/design.dart';
@@ -9,7 +8,6 @@ import '../../../../Logic/Controllers/settings_controller.dart';
 import '../../../Widgets/Card/section_card.dart';
 import '../../../Widgets/Input/custom_text_field.dart';
 import '../../../Widgets/Input/named_dropdown.dart';
-import '../../../Widgets/Input/string_list_field.dart';
 import '../../../Widgets/Switch/named_switch.dart';
 import 'alert_channels_field.dart';
 
@@ -17,17 +15,6 @@ class SettingsSections extends StatelessWidget {
   const SettingsSections({super.key, required this.controller});
 
   final SettingsController controller;
-
-  /// Empty or invalid values are also rejected server-side.
-  static final RegExp _timePattern = RegExp(
-    r'^([01]?[0-9]|2[0-3]):[0-5][0-9]$',
-  );
-
-  static Map<PanelTheme, String> get _themeItems => <PanelTheme, String>{
-    PanelTheme.light: L.settings.themeLight,
-    PanelTheme.dark: L.settings.themeDark,
-    PanelTheme.system: L.settings.themeSystem,
-  };
 
   static Map<String, String> get _logLevelItems => <String, String>{
     '0': L.settings.logLevelVerbose,
@@ -43,14 +30,7 @@ class SettingsSections extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       spacing: AppSpacing.s16,
-      children: [
-        _general(),
-        _uploadLimits(),
-        _policyDefaults(),
-        _alerts(),
-        _backup(),
-        _wlog(),
-      ],
+      children: [_general(), _uploadLimits(), _alerts(), _wlog()],
     );
   }
 
@@ -87,13 +67,6 @@ class SettingsSections extends StatelessWidget {
           fallback: selectedPackage,
           searchable: true,
         ),
-        NamedDropdown<PanelTheme>(
-          name: 'settings.panelDefaultTheme',
-          label: L.settings.panelTheme,
-          items: _themeItems,
-          dense: true,
-          fallback: PanelTheme.system,
-        ),
         _text('settings.panelBrandName', L.settings.panelBrandName),
         NamedDropdown<String>(
           name: 'settings.panelTimezone',
@@ -107,8 +80,8 @@ class SettingsSections extends StatelessWidget {
         ),
         _number('settings.offlineTimeout', L.settings.offlineTimeout),
         _number(
-          'settings.deviceAlertsOnlineMinutes',
-          L.settings.onlineAlertMinutes,
+          'settings.policyDevicesUpdatedCheckDelayMinutes',
+          L.settings.updateCheckDelay,
         ),
         _number(
           'settings.deviceAlertsOfflineMinutes',
@@ -165,27 +138,6 @@ class SettingsSections extends StatelessWidget {
     );
   }
 
-  Widget _policyDefaults() {
-    return SectionCard(
-      title: L.settings.sectionPolicyDefaults,
-      child: _grid([
-        _number(
-          'settings.policyDefaultServerReportInterval',
-          L.settings.reportInterval,
-        ),
-        _number('settings.policyDefaultMinTimeMs', L.settings.minDuration),
-        _number(
-          'settings.policyDefaultMinDistanceMeters',
-          L.settings.minDistance,
-        ),
-        _number(
-          'settings.policyDevicesUpdatedCheckDelayMinutes',
-          L.settings.updateCheckDelay,
-        ),
-      ]),
-    );
-  }
-
   Widget _alerts() {
     return SectionCard(
       title: L.settings.sectionAlerts,
@@ -203,53 +155,6 @@ class SettingsSections extends StatelessWidget {
           AlertChannelsField(
             values: controller.systemAlertTypeChannels,
             onChanged: controller.setAlertChannels,
-          ),
-        ],
-      ),
-    );
-  }
-
-  Widget _backup() {
-    return SectionCard(
-      title: L.settings.sectionBackup,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        mainAxisSize: MainAxisSize.min,
-        spacing: AppSpacing.s16,
-        children: [
-          StringListField(
-            label: L.settings.cleanTimes,
-            helper: L.settings.timeFormatHelper.trParams({'example': '01:00'}),
-            hint: '01:00',
-            keyboardType: TextInputType.datetime,
-            values: controller.backupScheduleCleanTimes,
-            onChanged: controller.setCleanTimes,
-            validate: _validateTime,
-          ),
-          StringListField(
-            label: L.settings.runTimes,
-            helper: L.settings.timeFormatHelper.trParams({'example': '01:30'}),
-            hint: '01:30',
-            keyboardType: TextInputType.datetime,
-            values: controller.backupScheduleRunTimes,
-            onChanged: controller.setRunTimes,
-            validate: _validateTime,
-          ),
-          StringListField(
-            label: L.settings.monitorTimes,
-            helper: L.settings.timeFormatHelper.trParams({'example': '04:00'}),
-            hint: '04:00',
-            keyboardType: TextInputType.datetime,
-            values: controller.backupScheduleMonitorTimes,
-            onChanged: controller.setMonitorTimes,
-            validate: _validateTime,
-          ),
-          StringListField(
-            label: L.settings.notifyUserIds,
-            helper: L.settings.notifyUserIdsHelper,
-            hint: L.settings.userIdHint,
-            values: controller.backupNotifyUserIds,
-            onChanged: controller.setNotifyUserIds,
           ),
         ],
       ),
@@ -321,13 +226,6 @@ class SettingsSections extends StatelessWidget {
     keyboardType: TextInputType.number,
     dense: true,
   );
-
-  String? _validateTime(String value) {
-    if (!_timePattern.hasMatch(value)) {
-      return L.settings.timeFormatInvalid;
-    }
-    return null;
-  }
 
   Widget _grid(List<Widget> children) {
     return LayoutBuilder(

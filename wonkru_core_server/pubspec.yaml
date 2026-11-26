@@ -1,6 +1,6 @@
 name: wonkru_core_server
 description: Wonkru MDM core module — shared enums, device protocol DTOs, and catalogs.
-version: 1.0.0
+version: 1.0.1
 
 environment:
   sdk: '^3.12.2'

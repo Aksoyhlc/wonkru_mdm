@@ -15,12 +15,9 @@ final class SettingsL {
   String get noAlertTypes => 'settings.no_alert_types'.tr;
 
   String get sectionUploadLimits => 'settings.section_upload_limits'.tr;
-  String get sectionPolicyDefaults => 'settings.section_policy_defaults'.tr;
   String get sectionAlerts => 'settings.section_alerts'.tr;
-  String get sectionBackup => 'settings.section_backup'.tr;
 
   String get defaultPolicy => 'settings.default_policy'.tr;
-  String get panelTheme => 'settings.panel_theme'.tr;
   String get panelBrandName => 'settings.panel_brand_name'.tr;
   String get mdmApkPackageName => 'settings.mdm_apk_package_name'.tr;
   String get downloadMdmApk => 'settings.download_mdm_apk'.tr;
@@ -28,12 +25,8 @@ final class SettingsL {
   String get panelTimezone => 'settings.panel_timezone'.tr;
   String get panelTimezoneUnset => 'settings.panel_timezone_unset'.tr;
   String get offlineTimeout => 'settings.offline_timeout'.tr;
-  String get onlineAlertMinutes => 'settings.online_alert_minutes'.tr;
   String get offlineAlertMinutes => 'settings.offline_alert_minutes'.tr;
   String get policyNotSelected => 'settings.policy_not_selected'.tr;
-  String get themeLight => 'settings.theme_light'.tr;
-  String get themeDark => 'settings.theme_dark'.tr;
-  String get themeSystem => 'settings.theme_system'.tr;
 
   String get uploadHintMax => 'settings.upload_hint_max'.tr;
   String get uploadApk => 'settings.upload_apk'.tr;
@@ -42,9 +35,6 @@ final class SettingsL {
   String get uploadLauncherBg => 'settings.upload_launcher_bg'.tr;
   String get uploadDeviceKb => 'settings.upload_device_kb'.tr;
 
-  String get reportInterval => 'settings.report_interval'.tr;
-  String get minDuration => 'settings.min_duration'.tr;
-  String get minDistance => 'settings.min_distance'.tr;
   String get updateCheckDelay => 'settings.update_check_delay'.tr;
 
   String get duplicatePrevention => 'settings.duplicate_prevention'.tr;
@@ -55,15 +45,6 @@ final class SettingsL {
   String get logLevelWarning => 'settings.log_level_warning'.tr;
   String get logLevelError => 'settings.log_level_error'.tr;
   String get logLevelFatal => 'settings.log_level_fatal'.tr;
-
-  String get cleanTimes => 'settings.clean_times'.tr;
-  String get runTimes => 'settings.run_times'.tr;
-  String get monitorTimes => 'settings.monitor_times'.tr;
-  String get timeFormatHelper => 'settings.time_format_helper'.tr;
-  String get timeFormatInvalid => 'settings.time_format_invalid'.tr;
-  String get notifyUserIds => 'settings.notify_user_ids'.tr;
-  String get notifyUserIdsHelper => 'settings.notify_user_ids_helper'.tr;
-  String get userIdHint => 'settings.user_id_hint'.tr;
 
   String get consoleLevel => 'settings.console_level'.tr;
   String get dbLevel => 'settings.db_level'.tr;

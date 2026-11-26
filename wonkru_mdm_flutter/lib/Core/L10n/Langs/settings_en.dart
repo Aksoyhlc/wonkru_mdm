@@ -12,25 +12,18 @@ const Map<String, String> settingsEn = {
   'settings.no_alert_types': 'No registered alert types.',
 
   'settings.section_upload_limits': 'Upload Limits',
-  'settings.section_policy_defaults': 'Policy Defaults',
   'settings.section_alerts': 'Alerts',
-  'settings.section_backup': 'Backup',
 
   'settings.default_policy': 'Default Policy',
-  'settings.panel_theme': 'Panel Theme',
-  'settings.panel_brand_name': 'Panel Brand Name',
+  'settings.panel_brand_name': 'Email Brand Name',
   'settings.mdm_apk_package_name': 'MDM APK package name',
   'settings.download_mdm_apk': 'Download MDM APK',
   'settings.mdm_apk_unavailable': 'The selected app has no downloadable APK.',
   'settings.panel_timezone': 'Timezone',
   'settings.panel_timezone_unset': 'UTC (not set)',
   'settings.offline_timeout': 'Offline Timeout (min)',
-  'settings.online_alert_minutes': 'Online Alert (min)',
   'settings.offline_alert_minutes': 'Offline Alert (min)',
   'settings.policy_not_selected': 'None selected',
-  'settings.theme_light': 'Light',
-  'settings.theme_dark': 'Dark',
-  'settings.theme_system': 'System',
 
   'settings.upload_hint_max': 'Up to @ceiling MB',
   'settings.upload_apk': 'App / APK (MB)',
@@ -39,9 +32,6 @@ const Map<String, String> settingsEn = {
   'settings.upload_launcher_bg': 'Launcher Background (MB)',
   'settings.upload_device_kb': 'Device Upload (KB)',
 
-  'settings.report_interval': 'Server Report Interval (sec)',
-  'settings.min_duration': 'Min. Duration (ms)',
-  'settings.min_distance': 'Min. Distance (m)',
   'settings.update_check_delay': 'Update Check Delay (min)',
 
   'settings.duplicate_prevention': 'Duplicate Prevention (hours)',
@@ -52,15 +42,6 @@ const Map<String, String> settingsEn = {
   'settings.log_level_warning': 'Warning (3)',
   'settings.log_level_error': 'Error (4)',
   'settings.log_level_fatal': 'Fatal (5)',
-
-  'settings.clean_times': 'Cleanup Times',
-  'settings.run_times': 'Run Times',
-  'settings.monitor_times': 'Monitor Times',
-  'settings.time_format_helper': 'HH:mm format, e.g. @example',
-  'settings.time_format_invalid': 'Must be in HH:mm format (e.g. 01:30)',
-  'settings.notify_user_ids': 'Notification User IDs',
-  'settings.notify_user_ids_helper': 'Users who receive backup notifications.',
-  'settings.user_id_hint': 'User ID',
 
   'settings.console_level': 'Console Level',
   'settings.db_level': 'Database Level',

@@ -12,25 +12,18 @@ const Map<String, String> settingsTr = {
   'settings.no_alert_types': 'Kayıtlı uyarı türü yok.',
 
   'settings.section_upload_limits': 'Yükleme Sınırları',
-  'settings.section_policy_defaults': 'Policy Varsayılanları',
   'settings.section_alerts': 'Uyarılar',
-  'settings.section_backup': 'Yedekleme',
 
   'settings.default_policy': 'Varsayılan Policy',
-  'settings.panel_theme': 'Panel Teması',
-  'settings.panel_brand_name': 'Panel Markası',
+  'settings.panel_brand_name': 'E-postalarda Görünen Marka Adı',
   'settings.mdm_apk_package_name': 'MDM APK paket adı',
   'settings.download_mdm_apk': 'MDM APK’yı indir',
   'settings.mdm_apk_unavailable': 'Seçili uygulamanın indirilebilir APK’sı yok.',
   'settings.panel_timezone': 'Saat Dilimi',
   'settings.panel_timezone_unset': 'UTC (ayarlanmadı)',
   'settings.offline_timeout': 'Çevrimdışı Zaman Aşımı (dk)',
-  'settings.online_alert_minutes': 'Çevrimiçi Uyarı (dk)',
   'settings.offline_alert_minutes': 'Çevrimdışı Uyarı (dk)',
   'settings.policy_not_selected': 'Seçilmedi',
-  'settings.theme_light': 'Açık',
-  'settings.theme_dark': 'Koyu',
-  'settings.theme_system': 'Sistem',
 
   'settings.upload_hint_max': 'En fazla @ceiling MB',
   'settings.upload_apk': 'Uygulama / APK (MB)',
@@ -39,9 +32,6 @@ const Map<String, String> settingsTr = {
   'settings.upload_launcher_bg': 'Launcher Arka Planı (MB)',
   'settings.upload_device_kb': 'Cihazdan Yükleme (KB)',
 
-  'settings.report_interval': 'Sunucu Rapor Aralığı (sn)',
-  'settings.min_duration': 'Min. Süre (ms)',
-  'settings.min_distance': 'Min. Mesafe (m)',
   'settings.update_check_delay': 'Güncelleme Kontrol Gecikmesi (dk)',
 
   'settings.duplicate_prevention': 'Tekrar Önleme (saat)',
@@ -52,16 +42,6 @@ const Map<String, String> settingsTr = {
   'settings.log_level_warning': 'Uyarı (3)',
   'settings.log_level_error': 'Hata (4)',
   'settings.log_level_fatal': 'Ölümcül (5)',
-
-  'settings.clean_times': 'Temizleme Zamanları',
-  'settings.run_times': 'Çalıştırma Zamanları',
-  'settings.monitor_times': 'İzleme Zamanları',
-  'settings.time_format_helper': 'HH:mm biçiminde; ör. @example',
-  'settings.time_format_invalid': 'HH:mm biçiminde olmalı (ör. 01:30)',
-  'settings.notify_user_ids': 'Bildirim Kullanıcı ID\'leri',
-  'settings.notify_user_ids_helper':
-      'Yedekleme bildirimlerinin gönderileceği kullanıcılar.',
-  'settings.user_id_hint': 'Kullanıcı ID',
 
   'settings.console_level': 'Konsol Seviyesi',
   'settings.db_level': 'Veritabanı Seviyesi',
